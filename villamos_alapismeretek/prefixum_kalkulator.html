@@ -15,11 +15,22 @@
   <div class="menu">
 
     <ul>
-      <li>Mértékegységek, Prefixumok</li>
-      <li>Villamos alapfogalmak</li>
-      <li>Eredő ellenállás</li>
-      <li>Egyenáramú hálózatok</li>
+      <li><a href="tartalom.html"> <u>Tartalomjegyzék</u> </a></li>
+      <li><a href="mertekegyseg_prefixum.html">Mértékegységek, Prefixumok</a></li>
+      <li><a href="alapfogalmak.html">Villamos alapfogalmak</a></li>
+      <li><a href="aramkor.html">Áramkör és jellemzői</a></li>
+      <li><a href="energiaforras_fogyaszto.html">Energiaforrások, fogyasztók</a></li>
+      <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li>
+      <li><a href="homersekletfugges.html">Hőmérsékletfüggés</a></li>
+      <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li>
+      <li><a href="osszetett_aramkor.html">Összetett áramkörök</a></li>
+      <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li>
+      <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li>
+      <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li>
+      <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li>
+      <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li>
     </ul>
+
   </div>
 
 
@@ -36,57 +47,69 @@
 
     <h1 class="main-title">Prefixum kalkulátor</h1>
 
+    <div class="h-container">
 
-                <h2>Miről?</h2>
-                <form>
-                  <div class="form-group">
-                    <select id="dropDown1">
-                      <option value="0">piko</option>
-                      <option value="1">nano</option>
-                      <option value="2">mikro</option>
-                      <option value="3">mili</option>
-                      <option value="4">centi</option>
-                      <option value="5">deci</option>
-                      <option value="6">-</option>
-                      <option value="7">deka</option>
-                      <option value="8">hekto</option>
-                      <option value="9">kilo</option>
-                      <option value="10">mega</option>
-                      <option value="11">giga</option>
-                      <option value="12">tera</option>
-                    </select>
-                  </div>
-                </form>
-                <br>
-
-
-                <h2>Mire?</h2>
-                <form>
-                  <div class="form-group">
-                    <select id="dropDown2">
-                      <option value="0">piko</option>
-                      <option value="1">nano</option>
-                      <option value="2">mikro</option>
-                      <option value="3">mili</option>
-                      <option value="4">centi</option>
-                      <option value="5">deci</option>
-                      <option value="6">-</option>
-                      <option value="7">deka</option>
-                      <option value="8">hekto</option>
-                      <option value="9">kilo</option>
-                      <option value="10">mega</option>
-                      <option value="11">giga</option>
-                      <option value="12">tera</option>
-                    </select>
-                  </div>
-                </form>
+      <div style="margin-right:2rem;">
+        <h2 class="section-title">Miről?</h2>
+        <form>
+          <div class="form-group">
+            <select id="dropDown1">
+              <option value="0">piko</option>
+              <option value="1">nano</option>
+              <option value="2">mikro</option>
+              <option value="3">mili</option>
+              <option value="4">centi</option>
+              <option value="5">deci</option>
+              <option value="6" selected>-</option>
+              <option value="7">deka</option>
+              <option value="8">hekto</option>
+              <option value="9">kilo</option>
+              <option value="10">mega</option>
+              <option value="11">giga</option>
+              <option value="12">tera</option>
+            </select>
+          </div>
+        </form>
+      </div>
 
 
-            <input class="form-control form-control-lg" id="beviteliErtek" type="text" style="width: 80%;max-width: 300px;margin: auto;" placeholder="0.00">
+      <div>
+        <h2 class="section-title">Mire?</h2>
+        <form>
+          <div class="form-group">
+            <select id="dropDown2">
+              <option value="0">piko</option>
+              <option value="1">nano</option>
+              <option value="2">mikro</option>
+              <option value="3">mili</option>
+              <option value="4">centi</option>
+              <option value="5">deci</option>
+              <option value="6" selected>-</option>
+              <option value="7">deka</option>
+              <option value="8">hekto</option>
+              <option value="9">kilo</option>
+              <option value="10">mega</option>
+              <option value="11">giga</option>
+              <option value="12">tera</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+            <input class="form-control form-control-lg" id="beviteliErtek" type="text" placeholder="0.00">
             <br>
             <button type="button" onclick="atvalt()" >Átváltás</button>
             <br>
-            <h1 style="color:#ECA72C;" id="eredmenyText"></h1>
+            <h1 id="eredmenyText"></h1>
       </div>
 
 
