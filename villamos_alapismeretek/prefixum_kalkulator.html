@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Prefixum kalkulátor - Villamos alapismeretek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles/index.css">
+</head>
+
+<body>
+
+
+
+  <div class="menu">
+
+    <ul>
+      <li>Mértékegységek, Prefixumok</li>
+      <li>Villamos alapfogalmak</li>
+      <li>Eredő ellenállás</li>
+      <li>Egyenáramú hálózatok</li>
+    </ul>
+  </div>
+
+
+  <div class="container">
+
+    <div class="menu-button ">
+      <svg width="40" height="27">
+        <rect width="36" height="3" x="2" y="0"  />
+        <rect width="36" height="3" x="2" y="12" />
+        <rect width="36" height="3" x="2" y="24" />
+      </svg>
+    </div>
+
+
+    <h1 class="main-title">Prefixum kalkulátor</h1>
+
+
+                <h2>Miről?</h2>
+                <form>
+                  <div class="form-group">
+                    <select id="dropDown1">
+                      <option value="0">piko</option>
+                      <option value="1">nano</option>
+                      <option value="2">mikro</option>
+                      <option value="3">mili</option>
+                      <option value="4">centi</option>
+                      <option value="5">deci</option>
+                      <option value="6">-</option>
+                      <option value="7">deka</option>
+                      <option value="8">hekto</option>
+                      <option value="9">kilo</option>
+                      <option value="10">mega</option>
+                      <option value="11">giga</option>
+                      <option value="12">tera</option>
+                    </select>
+                  </div>
+                </form>
+                <br>
+
+
+                <h2>Mire?</h2>
+                <form>
+                  <div class="form-group">
+                    <select id="dropDown2">
+                      <option value="0">piko</option>
+                      <option value="1">nano</option>
+                      <option value="2">mikro</option>
+                      <option value="3">mili</option>
+                      <option value="4">centi</option>
+                      <option value="5">deci</option>
+                      <option value="6">-</option>
+                      <option value="7">deka</option>
+                      <option value="8">hekto</option>
+                      <option value="9">kilo</option>
+                      <option value="10">mega</option>
+                      <option value="11">giga</option>
+                      <option value="12">tera</option>
+                    </select>
+                  </div>
+                </form>
+
+
+            <input class="form-control form-control-lg" id="beviteliErtek" type="text" style="width: 80%;max-width: 300px;margin: auto;" placeholder="0.00">
+            <br>
+            <button type="button" onclick="atvalt()" >Átváltás</button>
+            <br>
+            <h1 style="color:#ECA72C;" id="eredmenyText"></h1>
+      </div>
+
+
+  <script src="../scripts/index.js" charset="utf-8"></script>
+</body>
+
+</html>

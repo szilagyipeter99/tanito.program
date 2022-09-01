@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500&display=swap');
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  font-family: 'Roboto Mono', monospace;
+  background-color: #fbfeff;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.main-title {
+  margin-bottom: 4.75rem;
+  font-weight: 500;
+}
+
+.section {
+  margin-bottom: 6.75rem;
+}
+
+.section-title {
+  margin-bottom: .85rem;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+h1, h2 {
+  font-weight: 500;
+}
+
+h3, h4 {
+  margin-bottom: .5rem;
+  font-weight: 500;
+}
+
+p, ul {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+
+.container {
+  position: relative;
+  padding-top: 3rem;
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.h-container {
+  display: flex;
+  margin: 1rem 0;
+}
+
+.h-container svg {
+  margin-right: 1.5rem
+}
+
+svg {
+  margin: 1rem 0;
+  overflow: visible;
+}
+
+
+.menu {
+  position: fixed;
+  z-index: 1;
+  text-align: left;
+  background: black;
+  color: white;
+  width: 0;
+  height: 100%;
+  right: 0;
+  transition: .5s;
+}
+
+.menu ul {
+  padding: 3.35rem 4.75rem;
+  font-size: 1.35rem;
+  font-weight: 300;
+  list-style-type: square;
+  min-width: 350px;
+}
+
+.menu ul li {
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+
+.menu ul li a {
+  color: white;
+}
+
+.menu-active {
+  width: 50%;
+}
+
+.menu-button {
+  position: fixed;
+  z-index: 99;
+  right: 10%;
+  top: 56px;
+}
+
+.menu-button svg {
+  fill: black;
+  overflow: visible;
+}
+
+.menu-button svg rect {
+  transition: .5s;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.menu-button-active svg {
+  fill: white;
+}
+
+.menu-button-active svg rect:first-child {
+  y: 12px;
+  transform-origin: 20px 13px;
+  transform: rotate(-45deg);
+}
+
+.menu-button-active svg rect:nth-child(2) {
+  transform-origin: 20px 13px;
+  transform: rotate(45deg);
+
+}
+
+.menu-button-active svg rect:last-child {
+  y: 12px;
+  transform-origin: 20px 13px;
+  transform: rotate(45deg);
+}
+
+
+
+
+
+
+table {
+  margin-bottom: 1.5rem;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.keplet {
+  padding: .75rem;
+  margin-bottom: 1.5rem;
+  margin-left: .25rem;
+  width: fit-content;
+  border-right: 2px solid black;
+  border-bottom: 3px solid black;
+}
+
+.keplet p {
+  margin: 0;
+}
+
+
+button {
+  margin-bottom: 3rem;
+  border: 1px solid black;
+  background: white;
+  padding: 1rem;
+  box-shadow: 2px 3px 0 black;
+  border-radius: 12px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.25rem;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(2px);
+  background: rgba(0,0,0,0.05);
+  box-shadow: 2px 1px 0 black;
+}

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Személyes oldal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles/index.css">
+</head>
+
+<body>
+
+
+
+  <div class="menu">
+
+    <ul>
+      <li><a href="mertekegyseg_prefixum.html">Mértékegységek, Prefixumok</a></li>
+      <li><a href="alapfogalmak.html">Villamos alapfogalmak</a></li>
+      <li><a href="aramkor.html">Áramkör és jellemzői</a></li>
+      <li><a href="energiaforras_fogyaszto.html">Energiaforrások, fogyasztók</a></li>
+      <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li>
+      <li><a href="homersekletfugges.html">Hőmérsékletfüggés</a></li>
+      <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li>
+      <li><a href="osszetett_aramkor.html">Összetett áramkörök</a></li>
+      <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li>
+      <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li>
+      <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li>
+      <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li>
+      <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li>
+    </ul>
+
+  </div>
+
+
+  <div class="container">
+
+    <div class="menu-button ">
+      <svg width="40" height="27">
+        <rect width="36" height="3" x="2" y="0" />
+        <rect width="36" height="3" x="2" y="12" />
+        <rect width="36" height="3" x="2" y="24" />
+      </svg>
+    </div>
+
+
+    <h1 class="main-title">Villamos alapfogalmak</h1>
+
+
+    <div class="section">
+      <h2 class="section-title">Atom</h2>
+      <ul>
+        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
+        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
+      </ul>
+      <h3>Részei:</h3>
+      <ul>
+        <li>Atommag: neutronok (semleges töltés) és protonok (pozitív töltés)</li>
+        <li>Elektronhéjak: elektronok (negatív töltés) köröznek rajtuk</li>
+      </ul>
+      <br>
+      <p>Minden elemnek konkrétan adott a proton, neutron, elektron száma.</p>
+      <h3>Példa: RÉZ ATOM</h3>
+      <div class="h-container">
+        <svg width="300" height="300">
+          <circle cx="150" cy="150" r="140" stroke="grey" stroke-width="2" fill="none" />
+          <circle cx="150" cy="150" r="115" stroke="grey" stroke-width="2" fill="none" />
+          <circle cx="150" cy="150" r="90" stroke="grey" stroke-width="2" fill="none" />
+          <circle cx="150" cy="150" r="65" stroke="grey" stroke-width="2" fill="none" />
+          <circle cx="150" cy="150" r="20" fill="black" />
+
+
+          <circle cx="85" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" dur="21s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="85" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="180 150 150" to="540 150 150" dur="21s" repeatCount="indefinite" />
+          </circle>
+
+
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="45 150 150" to="405 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="90 150 150" to="450 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="135 150 150" to="495 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="180 150 150" to="540 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="225 150 150" to="585 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="270 150 150" to="630 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="60" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="315 150 150" to="675 150 150" dur="18s" repeatCount="indefinite" />
+          </circle>
+
+
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="20 150 150" to="380 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="40 150 150" to="400 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="60 150 150" to="420 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="80 150 150" to="440 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="100 150 150" to="460 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="120 150 150" to="480 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="140 150 150" to="500 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="160 150 150" to="520 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="180 150 150" to="540 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="200 150 150" to="560 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="220 150 150" to="580 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="240 150 150" to="600 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="260 150 150" to="620 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="280 150 150" to="640 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="300 150 150" to="660 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="320 150 150" to="680 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="35" cy="150" r="8" fill="orange">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="340 150 150" to="700 150 150" dur="15s" repeatCount="indefinite" />
+          </circle>
+
+
+
+          <circle cx="10" cy="150" r="8" fill="lightblue">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 150 150" to="360 150 150" dur="10s" repeatCount="indefinite" />
+          </circle>
+        </svg>
+        <ul>
+          <li>Proton: 29</li>
+          <li>Neutron: 36</li>
+          <li>Elektron: 29 (1 szabad)</li>
+        </ul>
+      </div>
+      <p>A külső elektronhéjról a szabad elektronok könnyen egy
+        másik atomokhoz vándorolhatnak, onnan pedig tovább haladnak.
+        Ha egy réz vezetékdarabot feszültségforráshoz csatlakoztatunk (például egy elemhez),
+        a szabad elektronok mind egy irányba kezdenek mozogni. </p>
+        <svg width="690" height="210">
+
+
+
+          <rect y="-5" x="120" width="450" height="200" rx="2" fill="rgba(0,0,0,0.05)" />
+
+
+          <circle cx="170" cy="50" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="170" cy="50" r="25" fill="grey" />
+          <text x="170" y="58" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+
+          <circle cx="270" cy="50" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="270" cy="50" r="25" fill="grey" />
+          <text x="270" y="58" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+
+          <circle cx="370" cy="50" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="370" cy="50" r="25" fill="grey" />
+          <text x="370" y="58" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+          <circle cx="470" cy="50" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="470" cy="50" r="25" fill="grey" />
+          <text x="470" y="58" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+
+
+
+          <circle cx="220" cy="140" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="220" cy="140" r="25" fill="grey" />
+          <text x="220" y="148" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+
+          <circle cx="320" cy="140" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="320" cy="140" r="25" fill="grey" />
+          <text x="320" y="148" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+
+          <circle cx="420" cy="140" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="420" cy="140" r="25" fill="grey" />
+          <text x="420" y="148" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+          <circle cx="520" cy="140" r="40" stroke="grey" stroke-width="1" fill="none" stroke-dasharray="5,5" />
+          <circle cx="520" cy="140" r="25" fill="grey" />
+          <text x="520" y="148" fill="lightgrey" font-size="1.25rem" text-anchor="middle">Cu</text>
+
+          <!-- <path fill="none" stroke-width="4" stroke="green" d="M 120 50 Q 130 10 170 10 T 220 50 T 270 90 T 320 90 T 370 90 T 420 50 T 470 10" />
+          <path fill="none" stroke-width="4" stroke="red" d="M 170 90 Q 210 90 220 50 T 270 10 T 320 50 T 370 90 T 420 90 T 470 90 T 520 50" />
+          <path fill="none" stroke-width="4" stroke="blue" d="M 220 180 Q 260 180 270 140 T 320 100 T 370 100 T 420 100 T 470 140 T 520 180" />
+          <path fill="none" stroke-width="4" stroke="grey" d="M 170 90 H 270 Q 310 90 320 50 T 370 10 T 420 50 T 470 90 H 520" />
+          <path fill="none" stroke-width="4" stroke="purple" d="M 170 100 H 320 Q 360 100 370 140 T 420 180 T 470 140 T 520 100" /> -->
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite"
+            path="M 120 50 Q 130 10 170 10 T 220 50 T 270 90 T 320 90 T 370 90 T 420 50 T 470 10" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s"
+            path="M 170 90 Q 210 90 220 50 T 270 10 T 320 50 T 370 90 T 420 90 T 470 90 T 520 50" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="1s"
+            path="M 220 180 Q 260 180 270 140 T 320 100 T 370 100 T 420 100 T 470 140 T 520 180" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.5s"
+            path="M 170 90 H 270 Q 310 90 320 50 T 370 10 T 420 50 T 470 90 H 520" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite"
+            path="M 170 100 H 320 Q 360 100 370 140 T 420 180 T 470 140 T 520 100" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.75s"
+            path="M 120 50 Q 130 10 170 10 T 220 50 T 270 90 T 320 90 T 370 90 T 420 50 T 470 10" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.25s"
+            path="M 170 90 Q 210 90 220 50 T 270 10 T 320 50 T 370 90 T 420 90 T 470 90 T 520 50" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.25s"
+            path="M 220 180 Q 260 180 270 140 T 320 100 T 370 100 T 420 100 T 470 140 T 520 180" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="1.25s"
+            path="M 170 90 H 270 Q 310 90 320 50 T 370 10 T 420 50 T 470 90 H 520" />
+          </circle>
+
+          <circle r="7" fill="lightblue">
+            <animateMotion dur="1.5s" repeatCount="indefinite" begin="0.75s"
+            path="M 170 100 H 320 Q 360 100 370 140 T 420 180 T 470 140 T 520 100" />
+          </circle>
+
+          <rect y="20" width="40" height="150" rx="6" fill="orange" />
+          <rect y="20" x="650" width="40" height="150" rx="5" fill="orange" />
+
+          <path fill="lightgrey" stroke-width="12" stroke-linejoin="round" stroke="lightgrey" d="M 40 0 H 120 L 222 190 h -182 z" />
+          <path fill="lightgrey" stroke-width="12" stroke-linejoin="round" stroke="lightgrey" d="M 650 190 H 572 L 468 0 h 182 z" />
+
+        </svg>
+      <ul>
+        <li>Vezető anyagok: át tudják adni elektronjaikat (Legtöbb fém)</li>
+        <li>Szigetelő anyagok: nincs szabad elektronja, amelyet átadhat (Üveg, Gumi, Műanyag…)</li>
+      </ul>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Villamos töltés</h2>
+      <h3>Jele: Q</h3>
+      <h3>Mértékegysége: Coulomb [C]</h3>
+      <br>
+      <p>1 Coulomb = 6 242 000 000 000 000 000 Elektron</p>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Áramerősség</h2>
+      <h3>Jele: I</h3>
+      <h3>Mértékegysége: Amper [A]</h3>
+      <p>Adott keresztmetszetű vezetéken adott idő alatt átáramló töltés mennyiségét
+        nevezzük áramerősségnek.</p>
+
+        <svg width="640" height="50">
+
+          <rect y="0" x="125" width="175" height="36" rx="2" fill="rgba(0,0,0,0.05)" />
+
+          <circle r="8" fill="lightblue">
+            <animateMotion dur="1s" repeatCount="indefinite"
+            path="M 120 17 H 300" />
+          </circle>
+
+          <circle r="8" fill="lightblue">
+            <animateMotion dur="1s" repeatCount="indefinite" begin="0.2s"
+            path="M 120 17 H 300" />
+          </circle>
+
+          <circle r="8" fill="lightblue">
+            <animateMotion dur="1s" repeatCount="indefinite" begin="0.4s"
+            path="M 120 17 H 300" />
+          </circle>
+
+          <circle r="8" fill="lightblue">
+            <animateMotion dur="1s" repeatCount="indefinite" begin="0.6s"
+            path="M 120 17 H 300" />
+          </circle>
+
+          <circle r="8" fill="lightblue">
+            <animateMotion dur="1s" repeatCount="indefinite" begin="0.8s"
+            path="M 120 17 H 300" />
+          </circle>
+
+
+          <rect y="7" width="20" height="25" rx="2" fill="orange" />
+          <rect y="7" x="405" width="20" height="25" rx="2" fill="orange" />
+
+          <path fill="lightgrey" stroke-width="12" stroke-linejoin="round" stroke="lightgrey" d="M 25 6 H 125 L 150 31 h -125 z" />
+          <path fill="lightgrey" stroke-width="12" stroke-linejoin="round" stroke="lightgrey" d="M 400 31 H 300 L 275 6 h 125 z" />
+
+        </svg>
+
+
+      <div class="keplet">
+        <p>I = Q / t</p>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Feszültség</h2>
+      <h3>Jele: U</h3>
+      <h3>Mértékegysége: Volt [V]</h3>
+      <p>Adott keresztmetszetű vezetéken adott idő alatt átáramló töltés mennyiségét nevezzük
+        áramerősségnek.</p>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Ellenállás</h2>
+      <h3>Jele: R</h3>
+      <h3>Mértékegysége: Ohm [Ω]</h3>
+      <p>A vezető anyag azon tulajdonsága, hogy akadályozza a töltéshordozók mozgását.</p>
+      <p><u>Függ:</u> Anyagminőségétől, Méretétől (Hossz, Kereszmetszet), Hőmérsékletétől</p>
+      <div class="keplet">
+        <p>R = U / I</p>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Fajlagos ellenállás:</h2>
+      <h3>Jele: ρ (ró)</h3>
+      <h3>Mértékegysége: [Ω*mm2/m]</h3>
+      <p>Ez a mennyiség jellemzi egy anyag vezetőképességét, azaz mennyire képes
+        vezetni az áramot. Minél kisebb a fajlagos ellenállás, annál jobb vezető
+        az adott anyag.</p>
+      <table>
+        <tr>
+          <td>Al</td>
+          <td>Alumínium</td>
+          <td>0.028</td>
+        </tr>
+        <tr>
+          <td>Cu</td>
+          <td>Réz</td>
+          <td>0.018</td>
+        </tr>
+        <tr>
+          <td>Ag</td>
+          <td>Ezüst</td>
+          <td>0.016</td>
+        </tr>
+        <tr>
+          <td>Au</td>
+          <td>Arany</td>
+          <td>0.022</td>
+        </tr>
+      </table>
+      <div class="keplet">
+        <p>R = ρ * l / A</p>
+      </div>
+      <p>Ha egy anyag nem vezető, akkor:</p>
+      <ul>
+        <li>Szigetelő (Üveg, Műanyag, Gumi)</li>
+        <li>Félvezető (Szilícium, Germánium)</li>
+      </ul>
+      <p>A félvezetők tiszta állapotban többnyire szigetelők. Szennyezni szokták
+        Foszforral vagy Bórral,
+        a végeredmény pedig olyan anyag, amely bizonyos körülmények között vezet, bizonyos
+        körülmények között szigetel. Így jöhet létre a dióda, tranzisztor, a processzor,
+        memóriák, összességében tehát az egész informatika és elektronika a félvezető
+        anyagok miatt létezhet. </p>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Hőmérsékletfüggés:</h2>
+      <h3>Jele: α (alfa)</h3>
+      <h3>Mértékegysége: [1/°C] vagy [1/K] </h3>
+      <p>Ez a mennyiség jellemzi egy anyag ellenállásának megváltozását adott
+        hőmérsékletváltozás hatására.
+        Minél kisebb, annál kevésbé változik meg az ellenállása.</p>
+      <table>
+        <tr>
+          <td>Al</td>
+          <td>Alumínium</td>
+          <td>0.00377</td>
+        </tr>
+        <tr>
+          <td>Cu</td>
+          <td>Réz</td>
+          <td>0.00393</td>
+        </tr>
+        <tr>
+          <td>Ag</td>
+          <td>Ezüst</td>
+          <td>0.0038</td>
+        </tr>
+        <tr>
+          <td>Au</td>
+          <td>Arany</td>
+          <td>0.004</td>
+        </tr>
+      </table>
+      <div class="keplet">
+        <p>R = R0 (1 + α * dT )</p>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Villamos munka</h2>
+      <h3>Jele: W</h3>
+      <h3>Mértékegysége: Wattóra [Wh]</h3>
+      <p>Egy áramkör két pontja között fogyasztott vagy termelt villamos energia.</p>
+      <p><u>Példák:</u> Wattórában adható meg egy hűtőszekrény éves átlagos fogyasztása,
+        vagy egy akkumulátor kapacitása.</p>
+      <div class="keplet">
+        <p>W = U * Q = U * I * t</p>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Teljesítmény</h2>
+      <h3>Jele: P</h3>
+      <h3>Mértékegysége: Watt [W]</h3>
+      <p>Adott pillanatban fogyasztott vagy termelt villamos energia.</p>
+      <p><u>Példa:</u> Egy ventilátort egyre magasabb fokozatba állítva nő az
+        általa felvett teljesítmény, azaz nő az általa adott pillanatban
+        elfogyasztott villamos energia.</p>
+      <div class="keplet">
+        <p>P = W / t = U * I</p>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <h2 class="section-title">Hatásfok</h2>
+      <h3>Jele: η</h3>
+      <p>Adott pillanatban fogyasztott vagy termelt villamos energia.</p>
+      <p><u>Példa:</u> Egy ventilátort egyre magasabb fokozatba állítva nő az
+        általa felvett teljesítmény, azaz nő az általa adott pillanatban
+        elfogyasztott villamos energia.</p>
+      <div class="keplet">
+        <p>P = W / t = U * I</p>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+  <script src="../scripts/index.js" charset="utf-8"></script>
+</body>
+
+</html>
