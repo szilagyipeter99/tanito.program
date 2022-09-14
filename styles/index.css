@@ -37,7 +37,7 @@ a:hover {
   font-weight: 500;
 }
 
-h1, h2 {
+h1, h2, b {
   font-weight: 500;
 }
 
@@ -59,7 +59,7 @@ ul {
 .container {
   position: relative;
   padding-top: 3rem;
-  width: 80%;
+  width: 75%;
   max-width: 1200px;
   margin: auto;
 }
@@ -116,8 +116,22 @@ svg {
 .menu-button {
   position: fixed;
   z-index: 99;
-  right: 75px;
+  right: 50px;
   top: 50px;
+}
+
+.back-button {
+  position: fixed;
+  z-index: 99;
+  left: 50px;
+  top: 50px;
+  font-size: 5rem;
+  line-height: 2.5rem;
+  transform: scaleX(-1);
+}
+
+.back-button:hover {
+  cursor: pointer;
 }
 
 .menu-button svg {
@@ -224,8 +238,8 @@ input:focus {
 }
 
 
-#kifejezesLista {
-  list-style-type: none;
-  font-size: 1.5rem;
-  line-height: 4rem;
+#kifejezesLista ul {
+  font-size: 1.35rem;
+  line-height: 3rem;
+  margin-bottom: 3.5rem;
 }
