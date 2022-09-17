@@ -31,6 +31,10 @@ a:hover {
   margin-bottom: 6.75rem;
 }
 
+.section img {
+  max-width: 100%;
+}
+
 .section-title {
   margin-bottom: .85rem;
   text-decoration: underline;
@@ -117,7 +121,7 @@ svg {
   position: fixed;
   z-index: 99;
   right: 50px;
-  top: 50px;
+  top: 40px;
 }
 
 .back-button {
@@ -125,7 +129,7 @@ svg {
   z-index: 99;
   left: 50px;
   top: 50px;
-  font-size: 5rem;
+  font-size: 3rem;
   line-height: 2.5rem;
   transform: scaleX(-1);
 }
@@ -188,8 +192,9 @@ td {
   margin-bottom: 1.5rem;
   margin-left: .25rem;
   width: fit-content;
-  border-right: 2px solid black;
-  border-bottom: 3px solid black;
+  border: 1px solid black;
+  box-shadow: 1px 2px 0 black;
+  border-radius: 3px;
 }
 
 .keplet p {
