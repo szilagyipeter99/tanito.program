@@ -17,6 +17,7 @@ const fruits = [
   "I/O - Input / Output - Bemenet/Kimenet",
   "HMI - Human-Machine Interface - Ember-Gép Interfész",
   "CAD - Computer Aided Design - Számítógépes Tervezőprogram",
+  "TCP - Tool Center Point - Szerszámközéppont",
 
 
 

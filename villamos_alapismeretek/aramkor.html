@@ -20,8 +20,8 @@
       <li><a href="alapfogalmak.html">Villamos alapfogalmak</a></li>
       <li><a href="aramkor.html">Áramkör fogalma, részei</a></li>
       <li><a href="aramforras_fogyaszto.html">Áramforrások, fogyasztók</a></li>
-      <!-- <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li> -->
-      <!-- <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li> -->
+      <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li>
+      <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li>
       <!-- <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li> -->
       <!-- <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li> -->
       <!-- <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li> -->
@@ -54,16 +54,64 @@
     <div class="section">
       <h2 class="section-title">Áramkör</h2>
       <p>Vezetékkel összekapcsolt áramforrás és fogyasztó. <br> <i>(...áramforrások, ...fogyasztók)</i></p>
-      <img src="aramkor.png" alt="">
+      <svg width="640" height="360">
+
+
+        <path d="M 210 355 C 25 350, 15 220, 15 200 S 10 75, 90 78" stroke="red" stroke-width="3" fill="transparent"/>
+
+        <path d="M 15 200 C 50 220, 100 250, 150 200 S 300 140, 340 138" stroke="red" stroke-width="3" fill="transparent"/>
+
+        <path d="M 410 355 C 500 350, 500 240, 600 200 S 600 100, 440 138" stroke="black" stroke-width="3" fill="transparent"/>
+
+        <path d="M 600 130 C 625 100, 625 50, 500 40 S 300 75, 190 78" stroke="black" stroke-width="3" fill="transparent"/>
+
+
+        <rect y="23" x="83" width="110" height="110" rx="29" fill="lightgrey" />
+        <rect y="28" x="88" width="100" height="100" rx="25" fill="rgba(0,0,0,0.1)" />
+        <rect y="40" x="100" width="75" height="75" rx="50" fill="rgba(240,240,100,1)" style="filter:blur(10px);" />
+        <rect y="52" x="112" width="50" height="50" rx="50" fill="rgba(255,255,100,0.4)" />
+
+
+        <rect y="83" x="333" width="110" height="110" rx="29" fill="lightgrey" />
+        <rect y="88" x="338" width="100" height="100" rx="25" fill="rgba(0,0,0,0.1)" />
+        <rect y="100" x="350" width="75" height="75" rx="50" fill="rgba(240,240,100,1)" style="filter:blur(10px);" />
+        <rect y="112" x="362" width="50" height="50" rx="50" fill="rgba(255,255,100,0.4)" />
+
+
+        <circle cx="597" cy="132" r="8" fill="black" />
+        <circle cx="15" cy="200" r="8" fill="red" />
+
+        <text x="585" y="175" fill="black" font-size="2rem" text-anchor="middle">B</text>
+        <text x="45" y="200" fill="red" font-size="2rem" text-anchor="middle">A</text>
+
+
+
+        <rect y="345" x="200" width="20" height="20" rx="3" fill="grey" />
+
+        <rect y="330" x="210" width="200" height="50" rx="3" fill="lightgreen" />
+
+
+      </svg>
     </div>
 
 
     <div class="section">
-      <h2 class="section-title">További fogalmak</h2>
+      <p><b>Csomópont:</b> Olyan pont az áramkörben, ahol vezeték vezetékhez csatlakozik.</p>
+      <ul>
+        <li><i> <u>A</u> egy csomópont és <u>B</u>  is </i></li>
+      </ul>
       <br>
-      <p><u>Csomópont:</u> Olyan pont az áramkörben, ahol vezeték vezetékhez csatlakozik.</p>
-      <p><u>Ág:</u> Két csomópont közötti része az áramkörnek.</p>
-      <p><u>Hurok:</u> Amely mentén egy csomópontból elindulva visszajutunk a kiindulási csomóponthoz.</p>
+      <p><b>Ág:</b> Két csomópont közötti része az áramkörnek.</p>
+      <ul>
+        <li><i>Az <u>A</u> és <u>B</u> pontokat összekötő mindhárom útvonal 1-1 ág</i></li>
+      </ul>
+      <br>
+      <p><b>Hurok:</b> Amely mentén egy csomópontból elindulva visszajutunk a kiindulási csomóponthoz.</p>
+      <ul>
+        <li><i>Az <u>A</u> pontból az akkumulátoron, majd <u>B</u> ponton keresztül,
+          végül lámpán át az 'A' pontba visszajutva egy hurkot írunk le</i></li>
+      </ul>
+      <br>
     </div>
 
 
@@ -76,7 +124,8 @@
         <li>Vezeték helyett a vezetősáv szó használatos</li>
         <li>Angol elnevezés:  <b>PCB</b> (Printed Circuit Board) </li>
       </ul>
-      <img src="pcb.jpg" alt="">
+      <img src="pcb.png" alt="">
+      <p class="attribution"><a href="https://www.freepik.com/free-photo/close-up-electronic-circuit_945930.htm#page=3&query=pcb&position=7&from_view=search">Image by bedneyimages</a> on Freepik</p>
     </div>
 
 

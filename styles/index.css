@@ -59,6 +59,13 @@ ul {
   list-style-position: inside;
 }
 
+.attribution, .attribution a {
+  font-size: 0.75rem;
+  color: lightgrey;
+}
+
+
+
 
 .container {
   position: relative;

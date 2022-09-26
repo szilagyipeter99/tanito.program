@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Mértékegységek, Prefixumok - Villamos alapismeretek</title>
+  <title>Ellenállás a gyakorlatban - Villamos alapismeretek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../styles/index.css">
 </head>
@@ -18,17 +18,15 @@
       <li><a href="tartalom.html"> <u>Tartalomjegyzék</u> </a></li>
       <li><a href="mertekegyseg_prefixum.html">Mértékegységek, Prefixumok</a></li>
       <li><a href="alapfogalmak.html">Villamos alapfogalmak</a></li>
-      <li><a href="aramkor.html">Áramkör és jellemzői</a></li>
-      <li><a href="energiaforras_fogyaszto.html">Energiaforrások, fogyasztók</a></li>
+      <li><a href="aramkor.html">Áramkör fogalma, részei</a></li>
+      <li><a href="aramforras_fogyaszto.html">Áramforrások, fogyasztók</a></li>
       <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li>
-      <li><a href="homersekletfugges.html">Hőmérsékletfüggés</a></li>
       <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li>
-      <li><a href="osszetett_aramkor.html">Összetett áramkörök</a></li>
-      <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li>
-      <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li>
-      <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li>
-      <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li>
-      <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li>
+      <!-- <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li> -->
+      <!-- <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li> -->
+      <!-- <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li> -->
+      <!-- <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li> -->
+      <!-- <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li> -->
     </ul>
 
   </div>
@@ -44,158 +42,137 @@
       </svg>
     </div>
 
-
-    <h1 class="main-title">Mértékegységek, Prefixumok</h1>
-
-
-    <div class="section">
-      <h2 class="section-title">Mértékegység</h2>
-      <ul>
-        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
-        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
-      </ul>
-
-      <table style="text-align:center;font-size: 1.1rem;">
-        <tr>
-          <td>  <b>Mennyiség</b> </td>
-          <td> <b>Jel</b> </td>
-          <td> <b>Mértékegység</b> </td>
-        </tr>
-        <tr>
-          <td>Hossz</td>
-          <td>l</td>
-          <td>m</td>
-        </tr>
-        <tr>
-          <td>Tömeg</td>
-          <td>m</td>
-          <td>kg</td>
-        </tr>
-        <tr>
-          <td>Idő</td>
-          <td>t</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Hőmérséklet</td>
-          <td>T</td>
-          <td>°C (vagy K)</td>
-        </tr>
-        <tr>
-          <td>Áramerősség</td>
-          <td>I</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>Fényerősség</td>
-          <td>Ir</td>
-          <td>Cd</td>
-        </tr>
-        <tr>
-          <td>Anyagmennyiség</td>
-          <td>n</td>
-          <td>mol</td>
-        </tr>
-      </table>
-
+    <div class="back-button" onclick="location.href='tartalom.html'">
+      &#10141;
     </div>
 
 
+    <h1 class="main-title">Ellenállás a gyakorlatban</h1>
+
+
     <div class="section">
-      <h2 class="section-title">Prefixumok</h2>
-      <ul>
-        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
-        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
-      </ul>
+      <h2 class="section-title">Fogyasztók ellenállása</h2>
+      <p>Egy áramkörben a fogyasztókon eső feszültség és a rajtuk átfolyó
+         áram egyenes arányosságban van. Minél magasabb a feszültség,
+         annál nagyobb áram fog folyni, a feszültség csökkentésével az áramfelvétel is csökken.
 
-      <div class="h-container">
+       Ugyanakkor egy adott feszültségű rendszerben a nagyobb ellenállás kisebb áramot,
+       a kisebb ellenállás nagyobb áramot jelent.
+     Mindezt jól mutatja az Ohm törvény, amely a feszültség és áramerősség elosztásával
+     adja meg az ellenállást. Az ellenállás létezése mutatja meg, hogy az áram a
+     fogyasztóban felhasználásra kerül.</p>
 
-        <table style="font-size: 1.1rem;margin-right:2.5rem;">
-          <tr>
-            <td>× 10</td>
-            <td>deka</td>
-          </tr>
-          <tr>
-            <td>× 100</td>
-            <td>hekto</td>
-          </tr>
-          <tr>
-            <td>× 1000</td>
-            <td>kilo</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>6</b></sup></td>
-            <td>mega</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>9</b></sup></td>
-            <td>giga</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>12</b></sup></td>
-            <td>tera</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>15</b></sup></td>
-            <td>peta</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>18</b></sup></td>
-            <td>exa</td>
-          </tr>
-        </table>
-
-        <table style="font-size: 1.1rem;margin-right:2.5rem;">
-          <tr>
-            <td>÷ 10</td>
-            <td>deci</td>
-          </tr>
-          <tr>
-            <td>÷ 100</td>
-            <td>centi</td>
-          </tr>
-          <tr>
-            <td>÷ 1000</td>
-            <td>mili</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>6</b></sup></td>
-            <td>mikro</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>9</b></sup></td>
-            <td>nano</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>12</b></sup></td>
-            <td>piko</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>15</b></sup></td>
-            <td>femto</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>18</b></sup></td>
-            <td>atto</td>
-          </tr>
-        </table>
-
+      <h3>Ohm törvény:</h3>
+      <div class="keplet">
+        <p>R = U / I</p>
       </div>
 
+      <br>
+      <p>Például ha egy relének ismerjük az ellenállását és a feszültségét,
+        kiszámolható az áramfelvétele, annak ismeretében pedig a teljesítmény is (P=U×I).</p>
+      <a href="https://www.tme.eu/Document/fddb33831bcbdfb60c2789c2215c692e/G5Q-EU.PDF">  <p> <i>G5Q-1A relé adatlap</i> </p></a>
+
+      <br>
+
+      <ul>
+        <li> Az Ohm törvény bizonyos esetekben nem érvényes, például <b>dióda</b>!</li>
+      </ul>
+
+
 
 
     </div>
 
 
+    <div class="section">
+      <h2 class="section-title">Belső ellenállás</h2>
+      <p>Ceruzaelemekkel szeretnénk működtetni egy <b>6V 25W</b>  LED fényforrást.</p>
 
-    <button onclick="location.href='prefixum_kalkulator.html'" type="button" name="button">Kalkulátor</button>
+      <svg width="640" height="175">
+
+        <rect y="0" x="50" width="110" height="110" rx="29" fill="lightgrey" />
+        <rect y="5" x="55" width="100" height="100" rx="25" fill="rgba(0,0,0,0.1)" />
+        <rect y="17" x="62" width="75" height="75" rx="50" fill="rgba(240,240,100,1)" style="filter:blur(10px);" />
+        <rect y="29" x="80" width="50" height="50" rx="50" fill="rgba(255,255,100,0.4)" />
+
+        <rect y="20" x="280" width="250" height="85" rx="2" fill="none" stroke="lightgrey" stroke-width="2" />
+        <rect y="0" x="345" width="120" height="50" rx="2" fill="white" />
+        <text x="405" y="27" fill="grey" font-size="1.5rem" text-anchor="middle">1.5 [V]</text>
+        <rect y="95" x="490" width="20" height="20" rx="3" fill="grey" />
+        <rect y="80" x="300" width="200" height="50" rx="3" fill="lightgreen" />
+
+      </svg>
+
+      <p>Mivel egy ceruzaelem 1.5V feszültségű, egymás után helyezünk 4 darabot,
+        hogy 6V-ot kapjunk.</p>
+
+        <svg width="900" height="150">
+
+          <rect y="20" x="30" width="880" height="85" rx="2" fill="none" stroke="lightgrey" stroke-width="2" />
+          <rect y="0" x="410" width="110" height="50" rx="2" fill="white" />
+          <text x="470" y="27" fill="grey" font-size="1.5rem" text-anchor="middle">6 [V]</text>
+
+          <rect y="95" x="240" width="20" height="20" rx="3" fill="grey" />
+          <rect y="80" x="50" width="200" height="50" rx="3" fill="lightgreen" />
+
+          <rect y="95" x="450" width="20" height="20" rx="3" fill="grey" />
+          <rect y="80" x="260" width="200" height="50" rx="3" fill="lightgreen" />
+
+          <rect y="95" x="660" width="20" height="20" rx="3" fill="grey" />
+          <rect y="80" x="470" width="200" height="50" rx="3" fill="lightgreen" />
+
+          <rect y="95" x="870" width="20" height="20" rx="3" fill="grey" />
+          <rect y="80" x="680" width="200" height="50" rx="3" fill="lightgreen" />
+
+
+        </svg>
+
+      <p>Rácsatlakoztatva a fényforrást, az mégsem fog világítani. <b>Miért?</b></p>
+
+      <svg width="640" height="200">
+
+        <rect y="55" x="465" width="440" height="100" rx="2" fill="none" stroke="red" stroke-width="3" />
+
+        <rect y="55" x="25" width="440" height="100" rx="2" fill="none" stroke="black" stroke-width="3" />
+
+        <rect y="75" x="445" width="30" height="100" rx="2" fill="white" />
+
+
+        <rect y="0" x="410" width="110" height="110" rx="29" fill="lightgrey" />
+        <rect y="5" x="415" width="100" height="100" rx="25" fill="rgba(0,0,0,0.1)" />
+        <rect y="29" x="439" width="50" height="50" rx="50" fill="rgba(255,255,100,0.4)" />
+
+
+        <rect y="145" x="240" width="20" height="20" rx="3" fill="grey" />
+        <rect y="130" x="50" width="200" height="50" rx="3" fill="lightgreen" />
+
+        <rect y="145" x="450" width="20" height="20" rx="3" fill="grey" />
+        <rect y="130" x="260" width="200" height="50" rx="3" fill="lightgreen" />
+
+        <rect y="145" x="660" width="20" height="20" rx="3" fill="grey" />
+        <rect y="130" x="470" width="200" height="50" rx="3" fill="lightgreen" />
+
+        <rect y="145" x="870" width="20" height="20" rx="3" fill="grey" />
+        <rect y="130" x="680" width="200" height="50" rx="3" fill="lightgreen" />
 
 
 
+      </svg>
+
+      <p>Az áramforrások is rendelkeznek ellenállással, ez a <b>belső ellenállás</b>.</p>
+
+      <p>Ohm törvényét ismerve bizonyítható, hogy adott belső ellenállás esetén
+      nagy áramfelvétel a feszültség esésével jár. Ceruzaelemeink belső ellenállása elég nagy
+       ahhoz, hogy a több, mint 4 Amper áramfelvétel esetén túl
+    nagy feszültség essen az elemeken, tehát a LED nem kap elég feszültséget, nem világít.</p>
+
+
+    <p>Ideális esetben egy generátor belső ellenállása nagyon alacsony, így nagy áramokat
+    képes leadni jelentős feszültségesés nélkül (pl. autó akkumulátor akár 500A).</p>
 
 
 
-
+    </div>
 
 
 
