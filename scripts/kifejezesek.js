@@ -1,10 +1,10 @@
-const fruits = [
+const kifejezesek = [
 
   "IoT - Internet of Things - Dolgok Internete",
   "AGV - Automated Guided Vehicle - Automatizált Irányított Jármű",
   "PLC - Programmable Logic Controller - Programozható Logikai Vezérlő",
   "ICT - In-Circuit Test - Áramköri Teszt",
-  "mMS - Modular Mechatronics System - Moduláris Mechatronikai Rendszer",
+  "MMS - Modular Mechatronics System - Moduláris Mechatronikai Rendszer",
   "API - Application Programming Interface - Alkalmazás Programozási Felület",
   "AI - Artificial Intelligence - Mesterséges Intelligencia",
   "AR - Augmented Reality - Kiterjesztett Valóság",
@@ -18,6 +18,15 @@ const fruits = [
   "HMI - Human-Machine Interface - Ember-Gép Interfész",
   "CAD - Computer Aided Design - Számítógépes Tervezőprogram",
   "TCP - Tool Center Point - Szerszámközéppont",
+  "IPC - Industrial PC (Personal Computer) - Ipari Számítógép",
+  "ISO - International Organization for Standardization - Nemzetközi Szabványügyi Szervezet",
+  "FIFO - First In, First Out - Az első termék távozozik először",
+  "LIFO - Last In, First Out - Az utolsó termék távozozik először",
+  "MES - Manufacturing Execution System - Gyártás-Végrehajtási Rendszer",
+  "MCU - Microcontroller Unit - Mikrokontroller (Pl. Atmega - Arduino)",
+  "ML - Machine Learning - Gépi Tanulás",
+  "SMT - Surface Mount Technology - Felületszerelt (Alkatrész)",
+  "THT - Through-Hole Technology - Furatszerelt (Alkatrész)",
 
 
 
@@ -43,17 +52,16 @@ function createElement(element, attribute) {
   return el;
 }
 
-
 const kifejezesLista = document.getElementById('kifejezesLista');
 
-const fruitsOrdered = fruits.sort((a, b) => {
+const kifejezesekRendezett = kifejezesek.sort((a, b) => {
   return a.localeCompare(b, undefined, {sensitivity: 'base'});
 });
 
 
-for(let i=0;i<fruitsOrdered.length;i++) {
+for(let i=0;i<kifejezesekRendezett.length;i++) {
 
-  let startChar = fruitsOrdered[i].substr(0,1);
+  let startChar = kifejezesekRendezett[i].substr(0,1);
 
   let insertIntoThis = document.getElementById(`subList${startChar}`) ? '' : `<div id="subList${startChar}"><h1><u>${startChar.toUpperCase()}</u></h1><ul id="listFor${startChar}"></ul></div>`;
 
@@ -64,13 +72,13 @@ for(let i=0;i<fruitsOrdered.length;i++) {
 }
 
 
-for(let j=0;j<fruitsOrdered.length;j++) {
+for(let j=0;j<kifejezesekRendezett.length;j++) {
 
-  let startChar = fruitsOrdered[j].substr(0,1);
+  let startChar = kifejezesekRendezett[j].substr(0,1);
 
   let insertIntoThis = document.getElementById(`listFor${startChar}`);
 
-  let text = `<b>${fruitsOrdered[j]}`.replace(" ", "</b> ");
+  let text = `<b>${kifejezesekRendezett[j]}`.replace(" ", "</b> ");
   //text = text.replace(" ", "</b> ")
 
   insertIntoThis.innerHTML += `<li>${text}</li>`;

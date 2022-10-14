@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;500&display=swap');
 
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -31,7 +30,7 @@ a:hover {
   margin-bottom: 6.75rem;
 }
 
-.section img {
+.section img, .section svg {
   max-width: 100%;
 }
 
@@ -56,16 +55,14 @@ p, ul {
 }
 
 ul {
-  list-style-position: inside;
+  list-style-position: outside;
+  margin-left: 25px;
 }
 
 .attribution, .attribution a {
   font-size: 0.75rem;
   color: lightgrey;
 }
-
-
-
 
 .container {
   position: relative;
@@ -89,10 +86,9 @@ svg {
   overflow: visible;
 }
 
-
 .menu {
   position: fixed;
-  z-index: 1;
+  z-index: 98;
   text-align: left;
   background: black;
   color: white;
@@ -171,7 +167,6 @@ svg {
 .menu-button-active svg rect:nth-child(2) {
   transform-origin: 20px 13px;
   transform: rotate(45deg);
-
 }
 
 .menu-button-active svg rect:last-child {
@@ -180,12 +175,8 @@ svg {
   transform: rotate(45deg);
 }
 
-
-
-
-
-
 table {
+  font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -208,7 +199,6 @@ td {
   margin: 0;
 }
 
-
 button {
   margin-bottom: 3rem;
   border: 1px solid black;
@@ -226,10 +216,9 @@ button:hover {
 
 button:active {
   transform: translateY(2px);
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
   box-shadow: 2px 1px 0 black;
 }
-
 
 input, select {
   font-size: 1rem;
@@ -246,12 +235,43 @@ input, select {
 }
 
 input:focus {
-    outline: none;
+  outline: none;
+}
+
+#kifejezesLista ul {
+  font-size: 1.15rem;
+  line-height: 3rem;
+  margin-bottom: 3.5rem;
 }
 
 
-#kifejezesLista ul {
-  font-size: 1.35rem;
-  line-height: 3rem;
-  margin-bottom: 3.5rem;
+.ellenallas-tabla tr td:nth-child(4) {
+  background: rgba(0,0,0,0.15)
+}
+
+@media only screen and (max-width: 768px) {
+  .back-button {
+    display: none;
+  }
+  .menu-button {
+    position: fixed;
+    z-index: 99;
+    right: 30px;
+    top: 40px;
+  }
+  .container {
+    width: 90%;
+  }
+  .menu ul {
+    padding: 3rem 1.5rem;
+  }
+  .main-title {
+    font-size: 1.75rem;
+  }
+  table {
+    font-size: 0.8rem;
+  }
+  .h-container.atom {
+    flex-direction: column;
+  }
 }

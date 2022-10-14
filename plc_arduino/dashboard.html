@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="hu" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>PLC Arduino fordító</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../styles/index.css">
+  <link rel="stylesheet" href="plc.css">
+</head>
+
+<body>
+
+
+  <div class="menu">
+
+    <ul>
+      <li><a href="kifejezesek.html">Kifejezések szótára</a></li>
+      <li><a href="villamos_alapismeretek/tartalom.html">Villamos alapismeretek</a></li>
+    </ul>
+
+  </div>
+
+
+
+  <div class="container">
+
+    <div class="menu-button ">
+      <svg width="40" height="27">
+        <rect width="36" height="3" x="2" y="0" />
+        <rect width="36" height="3" x="2" y="12" />
+        <rect width="36" height="3" x="2" y="24" />
+      </svg>
+    </div>
+
+
+    <div class="back-button" onclick="location.href='../index.html'">
+      &#10141;
+    </div>
+
+    <h1 class="main-title">PLC Arduino fordító</h1>
+
+
+    <div class="eszkoztar" id="gateButtons">
+      <button type="button" name="button" id="newBlock">+ Blokk</button>
+      <button type="button" name="button" onclick="addBlock('NOT', 1, 1)">NOT</button>
+      <button type="button" name="button" onclick="addBlock('AND', 2, 1)">AND</button>
+      <button type="button" name="button" onclick="addBlock('NAND', 2, 1)">NAND</button>
+      <button type="button" name="button" onclick="addBlock('OR', 2, 1)">OR</button>
+      <button type="button" name="button" onclick="addBlock('NOR', 2, 1)">NOR</button>
+      <button type="button" name="button" onclick="addBlock('XOR', 2, 1)">XOR</button>
+      <button type="button" name="button" onclick="addBlock('TON', 2, 2)">TON</button>
+      <button type="button" name="button" onclick="addBlock('TOF', 2, 2)">TOF</button>
+      <button type="button" name="button" onclick="addBlock('ADD', 2, 1)">ADD</button>
+      <button type="button" name="button" onclick="addBlock('GT', 2, 1)">GT</button>
+      <button type="button" name="button" onclick="addBlock('GE', 2, 1)">GE</button>
+      <button type="button" name="button" onclick="addBlock('LT', 2, 1)">LT</button>
+      <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button>
+      <button type="button" name="button" onclick="addBlock('RS', 2, 1)">RS</button>
+      <button type="button" name="button" onclick="addBlock('SR', 2, 1)">SR</button>
+      <button type="button" name="button" onclick="addBlock('VAR', 1, 1)">VAR</button>
+    </div>
+
+    <div class="eszkoztar">
+      <button type="button" name="button" style="box-shadow: 2px 3px 0 orange;" id="newLine">Összeköt</button>
+      <button type="button" name="button">&larr;</button>
+      <button type="button" name="button">&rarr;</button>
+      <button type="button" name="button" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
+      <button type="button" name="button" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
+      <button type="button" name="button" onclick="scan()">Kód generálása</button>
+    </div>
+    <br>
+
+    <div class="plc-network">
+
+      <div class="lines">
+        <svg width="100%" height="200">
+          <!-- <path d="M 180 80 C 240 80, 240 50, 300 50" />
+          <path d="M 180 240 C 240 240, 240 110, 300 110" /> -->
+        </svg>
+      </div>
+
+      <div class="pointers">
+      </div>
+
+      <div class="plc-network-row">
+
+        <!-- <div class="plc-gate plc-gate-2-1">
+          <div class="plc-gate-container">
+            <div class="plc-gate-input-labels">
+              <p><input type="text" value="?"></p>
+              <p><input type="text" value="?"></p>
+            </div>
+            <div class="plc-gate-body">
+              <div class="plc-gate-body-input"></div>
+              <div class="plc-gate-body-input"></div>
+              <div class="plc-gate-body-rect">AND</div>
+              <div class="plc-gate-body-output"></div>
+            </div>
+            <div class="plc-gate-output-labels">
+              <p><input type="text" value="?"></p>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+
+    </div>
+
+    <p id="finishedCode">A kód itt fog megjelenni...</p>
+
+
+  </div>
+
+  <script src="../scripts/index.js" charset="utf-8"></script>
+  <script src="plc.js" charset="utf-8"></script>
+</body>
+
+</html>

@@ -1,0 +1,211 @@
+.plc-network {
+  min-width: 100%;
+  width: fit-content;
+  height: fit-content;
+  background: rgb(245, 245, 245);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.plc-network::after {
+  display: block;
+  height: 20px;
+  width: 500px;
+  background: none;
+  content: ' ';
+}
+
+
+.plc-network-row {
+  width: 100%;
+  height: fit-content;
+  min-height: 20px;
+  display: flex;
+  position: relative;
+}
+
+.plc-gate-1-1, .plc-gate-2-1, .plc-gate-2-2{
+  z-index: 96;
+  pointer-events: none;
+}
+
+.plc-gate-container {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin: 20px 10px;
+}
+
+.plc-gate-input-labels {
+  text-align: right;
+}
+
+.plc-gate-1-1 .plc-gate-input-labels p, .plc-gate-1-1 .plc-gate-output-labels p, .plc-gate-2-1 .plc-gate-output-labels p {
+  line-height: 120px;
+  margin: 0;
+}
+
+.plc-gate-2-1 .plc-gate-input-labels p, .plc-gate-2-2 .plc-gate-input-labels p, .plc-gate-2-2 .plc-gate-output-labels p {
+  line-height: 60px;
+  margin: 0;
+}
+
+
+.plc-gate-body {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.plc-gate-body-input {
+  width: 10px;
+  height: 4px;
+  background: black;
+  position: absolute;
+  left: 0;
+}
+
+.plc-gate-2-1 .plc-gate-body-input:nth-child(1), .plc-gate-2-2 .plc-gate-body-input:nth-child(1), .plc-gate-2-2 .plc-gate-body-output:nth-child(4) {
+  top: 28px;
+}
+
+.plc-gate-2-1 .plc-gate-body-input:nth-child(2), .plc-gate-2-2 .plc-gate-body-input:nth-child(2), .plc-gate-2-2 .plc-gate-body-output:nth-child(5) {
+  bottom: 28px;
+}
+
+.plc-gate-1-1 .plc-gate-body-input:nth-child(1), .plc-gate-1-1 .plc-gate-body-output:nth-child(3), .plc-gate-2-1 .plc-gate-body-output:nth-child(4) {
+  top: 58px;
+}
+
+
+.plc-gate-body-rect {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 100px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid black;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.25rem;
+  padding-top: 0.1rem;
+}
+
+
+.plc-gate-1-1 .plc-gate-body-rect {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  width: 100px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid black;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.25rem;
+  padding-top: 0.1rem;
+}
+
+
+.plc-gate-body-output {
+  width: 10px;
+  height: 4px;
+  background: black;
+  position: absolute;
+  right: 0;
+}
+
+.plc-gate-output-labels {
+  text-align: left;
+}
+
+.plc-gate-container input {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  width: 50px;
+  background: none;
+  border: none;
+  padding: 2px;
+  pointer-events: all;
+}
+
+.plc-gate-container .plc-gate-input-labels input {
+  text-align: right;
+}
+
+.plc-gate-container input:focus {
+  background: rgb(255, 255, 255);
+  overflow: visible;
+}
+
+.eszkoztar button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pointers {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 97;
+}
+
+.pointers .pointer-body {
+  position: absolute;
+  top: 82px;
+  left: 232px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 6px solid lightgrey;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+.pointers .pointer-body:hover {
+  cursor: pointer;
+  border: 6px solid rgb(235,235,235);
+  transform: scale(1.1);
+}
+
+.pointers .pointer-body.active {
+  border: 5px solid orange;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 95;
+}
+
+.lines svg {
+  margin: 0;
+  stroke: orange;
+  stroke-width: 3;
+  fill: none;
+}
+
+.lines svg path {
+  transition: 0.2s;
+  z-index: 95;
+}
+
+.lines svg path:hover {
+  stroke: lightgreen;
+  stroke-width: 4;
+}
+
+#finishedCode {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  background: rgb(52,52,52);
+  padding: 2rem;
+  color: white;
+  border-radius: 5px;
+  tab-size: 3;
+}
