@@ -24,7 +24,7 @@
   position: relative;
 }
 
-.plc-gate-1-1, .plc-gate-2-1, .plc-gate-2-2{
+.plc-gate-1-1, .plc-gate-2-1, .plc-gate-2-2, .plc-gate-1-2{
   z-index: 96;
   pointer-events: none;
 }
@@ -40,12 +40,12 @@
   text-align: right;
 }
 
-.plc-gate-1-1 .plc-gate-input-labels p, .plc-gate-1-1 .plc-gate-output-labels p, .plc-gate-2-1 .plc-gate-output-labels p {
+.plc-gate-1-1 .plc-gate-input-labels p, .plc-gate-1-2 .plc-gate-input-labels p, .plc-gate-1-1 .plc-gate-output-labels p, .plc-gate-2-1 .plc-gate-output-labels p {
   line-height: 120px;
   margin: 0;
 }
 
-.plc-gate-2-1 .plc-gate-input-labels p, .plc-gate-2-2 .plc-gate-input-labels p, .plc-gate-2-2 .plc-gate-output-labels p {
+.plc-gate-2-1 .plc-gate-input-labels p, .plc-gate-1-2 .plc-gate-output-labels p, .plc-gate-2-2 .plc-gate-input-labels p, .plc-gate-2-2 .plc-gate-output-labels p {
   line-height: 60px;
   margin: 0;
 }
@@ -65,15 +65,15 @@
   left: 0;
 }
 
-.plc-gate-2-1 .plc-gate-body-input:nth-child(1), .plc-gate-2-2 .plc-gate-body-input:nth-child(1), .plc-gate-2-2 .plc-gate-body-output:nth-child(4) {
+.plc-gate-2-1 .plc-gate-body-input:nth-child(1), .plc-gate-1-2 .plc-gate-body-output:nth-child(3), .plc-gate-2-2 .plc-gate-body-input:nth-child(1), .plc-gate-2-2 .plc-gate-body-output:nth-child(4) {
   top: 28px;
 }
 
-.plc-gate-2-1 .plc-gate-body-input:nth-child(2), .plc-gate-2-2 .plc-gate-body-input:nth-child(2), .plc-gate-2-2 .plc-gate-body-output:nth-child(5) {
+.plc-gate-2-1 .plc-gate-body-input:nth-child(2), .plc-gate-1-2 .plc-gate-body-output:nth-child(4), .plc-gate-2-2 .plc-gate-body-input:nth-child(2), .plc-gate-2-2 .plc-gate-body-output:nth-child(5) {
   bottom: 28px;
 }
 
-.plc-gate-1-1 .plc-gate-body-input:nth-child(1), .plc-gate-1-1 .plc-gate-body-output:nth-child(3), .plc-gate-2-1 .plc-gate-body-output:nth-child(4) {
+.plc-gate-1-1 .plc-gate-body-input:nth-child(1), .plc-gate-1-2 .plc-gate-body-input:nth-child(1), .plc-gate-1-1 .plc-gate-body-output:nth-child(3), .plc-gate-2-1 .plc-gate-body-output:nth-child(4) {
   top: 58px;
 }
 
@@ -94,17 +94,17 @@
 
 
 .plc-gate-1-1 .plc-gate-body-rect {
-  position: absolute;
   top: 40px;
-  right: 10px;
-  width: 100px;
   height: 40px;
+}
+
+.plc-gate-1-2 .plc-gate-body-rect {
+  top: 0;
+  height: 120px;
   background: rgba(255, 255, 255, 0.9);
-  border: 2px solid black;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 1.25rem;
-  padding-top: 0.1rem;
+  border: 0px solid black;
+  padding-top: 2.8rem;
+  font-size: 1.1rem;
 }
 
 
@@ -223,9 +223,24 @@
   pointer-events: all;
 }
 
-#inputsTable td:last-child input, #outputsTable td:last-child input {
+#inputsTable td:nth-child(2) input, #outputsTable td:nth-child(2) input {
   width: 35px;
   text-align: center;
+  font-size: 1rem;
+}
+
+#inputsTable td:last-child, #outputsTable td:last-child {
+  border: none;
+  text-align: center;
+  padding-left: 0.5rem;
+}
+
+#inputsTable td button, #outputsTable td button {
+  border: none;
+  box-shadow: none;
+  margin: 0;
+  padding: 0.1rem;
+  color: lightgrey;
   font-size: 1rem;
 }
 
@@ -243,7 +258,7 @@
   font-size: 0.8rem;
   white-space: pre-wrap;
   background: rgb(52,52,52);
-  padding: 2rem;
+  padding: 1.5rem;
   color: white;
   border-radius: 5px;
   tab-size: 3;

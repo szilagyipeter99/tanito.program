@@ -51,13 +51,14 @@
       <button type="button" name="button" onclick="addBlock('XOR', 2, 1)">XOR</button>
       <button type="button" name="button" onclick="addBlock('TON', 2, 2)">TON</button>
       <button type="button" name="button" onclick="addBlock('TOF', 2, 2)">TOF</button>
-      <button type="button" name="button" onclick="addBlock('ADD', 2, 1)">ADD</button>
+      <!-- <button type="button" name="button" onclick="addBlock('ADD', 2, 1)">ADD</button>
       <button type="button" name="button" onclick="addBlock('GT', 2, 1)">GT</button>
       <button type="button" name="button" onclick="addBlock('GE', 2, 1)">GE</button>
       <button type="button" name="button" onclick="addBlock('LT', 2, 1)">LT</button>
-      <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button>
+      <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button> -->
       <button type="button" name="button" onclick="addBlock('RS', 2, 1)">RS</button>
       <button type="button" name="button" onclick="addBlock('SR', 2, 1)">SR</button>
+      <button type="button" name="button" onclick="addBlock('SPLIT', 1, 2)">SPLIT</button>
       <button type="button" name="button" onclick="addBlock('VAR', 1, 1)">VAR</button>
     </div>
 
@@ -65,8 +66,8 @@
       <button type="button" name="button" style="box-shadow: 2px 3px 0 orange;" id="newLine">Összeköt</button>
       <button type="button" name="button">&larr;</button>
       <button type="button" name="button">&rarr;</button>
-      <button type="button" name="button" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
-      <button type="button" name="button" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
+      <button type="button" name="button" onclick="addInp()" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
+      <button type="button" name="button" onclick="addOut()" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
       <button type="button" name="button" onclick="scan()">Kód generálása</button>
     </div>
     <br>
@@ -74,15 +75,17 @@
     <div class="io-tables">
       <table id="inputsTable">
         <tr>
-          <td><input type="text" value="bemenet1"></td>
-          <td><input type="text" value="1"></td>
+          <td><input type="text" value="input0"></td>
+          <td><input type="text" value="0"></td>
+          <td> <button type="button" onclick="removeIO(this)" name="button">X</button> </td>
         </tr>
       </table>
 
       <table id="outputsTable">
         <tr>
-          <td><input type="text" value="kimenet1"></td>
-          <td><input type="text" value="2"></td>
+          <td><input type="text" value="output0"></td>
+          <td><input type="text" value="0"></td>
+          <td> <button type="button" onclick="removeIO(this)" name="button">X</button> </td>
         </tr>
       </table>
     </div>

@@ -85,6 +85,10 @@ function addNewLine() {
         pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i21" style="left:${j*gateWidth + 60-2*pointerRadius}px;top:${i*gateHeight + 50-pointerRadius}px;" class="pointer-body"></span>`);
         pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i22" style="left:${j*gateWidth + 60-2*pointerRadius}px;top:${i*gateHeight + 110-pointerRadius}px;" class="pointer-body"></span>`);
         pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o112" style="left:${j*gateWidth + 180}px;top:${i*gateHeight + 80-pointerRadius}px;" class="pointer-body"></span>`);
+      } else if (childrenArray[j].classList[1] == 'plc-gate-1-2') {
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i11" style="left:${j*gateWidth + 60-2*pointerRadius}px;top:${i*gateHeight + 80-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o211" style="left:${j*gateWidth + 180}px;top:${i*gateHeight + 50-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o221" style="left:${j*gateWidth + 180}px;top:${i*gateHeight + 110-pointerRadius}px;" class="pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-2-2') {
         pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i21" style="left:${j*gateWidth + 60-2*pointerRadius}px;top:${i*gateHeight + 50-pointerRadius}px;" class="pointer-body"></span>`);
         pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i22" style="left:${j*gateWidth + 60-2*pointerRadius}px;top:${i*gateHeight + 110-pointerRadius}px;" class="pointer-body"></span>`);
@@ -131,6 +135,8 @@ function scan() {
   setupText = '';
   loopText = '';
 
+  getVariables();
+
   const rows = document.querySelectorAll(".plc-network-row");
   const paths = document.querySelectorAll("path");
   for (let i = 0; i < rows.length; i++) {
@@ -152,6 +158,8 @@ function scan() {
         createGateCode(gateName, (inputValues[0] == '') ? `v${i}${j}1` : inputValues[0], (outputValues[0] == '') ? `v${i}${j}2` : outputValues[0]);
       } else if (inputValues.length == 2 && outputValues.length == 1) {
         createGateCode(gateName, (inputValues[0] == '') ? `v${i}${j}1` : inputValues[0], (outputValues[0] == '') ? `v${i}${j}3` : outputValues[0], (inputValues[1] == '') ? `v${i}${j}2` : inputValues[1]);
+      } else if (inputValues.length == 1 && outputValues.length == 2) {
+        createGateCode(gateName, (inputValues[0] == '') ? `v${i}${j}1` : inputValues[0], (outputValues[0] == '') ? `v${i}${j}2` : outputValues[0], null, (outputValues[1] == '') ? `v${i}${j}3` : outputValues[1]);
       } else if (inputValues.length == 2 && outputValues.length == 2) {
         createGateCode(gateName, (inputValues[0] == '') ? `v${i}${j}1` : inputValues[0], (outputValues[0] == '') ? `v${i}${j}3` : outputValues[0], (inputValues[1] == '') ? `v${i}${j}2` : inputValues[1], (outputValues[1] == '') ? `v${i}${j}4` : outputValues[1]);
       }
@@ -175,13 +183,27 @@ function scan() {
 
   //console.log(`${declareText}\nvoid setup() {\n\tpinMode(ledPin, OUTPUT);\n\tpinMode(buttonPin, INPUT);\n}\n\nvoid loop() {${loopText}\n}`);
 
-  document.getElementById('finishedCode').innerHTML = `${declareText}\nvoid setup() {\n\n\tpinMode(ledPin, OUTPUT);\n\tpinMode(buttonPin, INPUT);\n\n}\n\nvoid loop() {\n${loopText}\n}`;
+  document.getElementById('finishedCode').innerHTML = `${declareText}\nvoid setup() {\n\n${setupText}\n}\n\nvoid loop() {\n\n${loopText}\n}`;
 
 
 }
 
+let latchCounter = 0;
+let timerCounter = 0;
 
 function createGateCode(gateName, inp1, out1, inp2, out2) {
+
+
+  let outputFields = document.getElementById("outputsTable").querySelectorAll('input');
+  let outputsArr = [];
+
+  for (let i = 0; i < outputFields.length; i++) {
+
+    if (i % 2 == 0) {
+      outputsArr[i / 2] = outputFields[i].value;
+    }
+
+  }
 
   if (inp1) {
     declareText += `int ${inp1} = 0;\n`;
@@ -193,18 +215,16 @@ function createGateCode(gateName, inp1, out1, inp2, out2) {
     //console.log(`int ${inp2} = 0;`);
   }
 
-  if (out1) {
+  if (out1 && outputsArr.indexOf(out1) == -1) {
     declareText += `int ${out1} = 0;\n`;
     //console.log(`int ${out1} = 0;`);
   }
 
-  if (out2) {
+  if (out2 && outputsArr.indexOf(out2) == -1) {
     declareText += `int ${out2} = 0;\n`;
     //console.log(`int ${out2} = 0;`);
   }
 
-
-  let text;
   switch (gateName) {
     case 'NOT':
       loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 0;\n\t} else {\n\t\t${out1} = 1;\n\t}\n`;
@@ -224,17 +244,87 @@ function createGateCode(gateName, inp1, out1, inp2, out2) {
     case 'XOR':
       loopText += `\n\tif ((${inp1}==1 && ${inp2}==0) || (${inp1}==0 && ${inp2}==1)) {\n\t\t${out1} = 1;\n\t} else {\n\t\t${out1} = 0;\n\t}\n`;
       break;
-    case 'VAR':
-      loopText += `\n\tif (${inp1}==1) {\n\t${out1} = 1;\n} else {\n\t${out1} = 0;\n}\n`;
+    case 'SPLIT':
+      loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 1;\n\t\t${out2} = 1;\n\t} else {\n\t\t${out1} = 0;\n\t\t${out2} = 0;\n\t}\n`;
       break;
+    case 'VAR':
+      loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 1;\n\t} else {\n\t\t${out1} = 0;\n\t}\n`;
+      break;
+    case 'RS':
+      loopText += `\n\tif ((${inp1}==1 || latchVar${latchCounter}==1) && ${inp2}==0) {\n\t\tlatchVar${latchCounter} = 1;\n\t\t${out1} = 1;\n\t} else {\n\t\tlatchVar${latchCounter} = 0;\n\t\t${out1} = 0;\n\t}\n`;
+      declareText += `int latchVar${latchCounter} = 0;\n`
+      latchCounter++;
+      break;
+    case 'SR':
+      loopText += `\n\tif ((${inp2}==0 $$ latchVar${latchCounter}==1) || ${inp1}==1) {\n\t\tlatchVar${latchCounter} = 1;\n\t\t${out1} = 1;\n\t} else {\n\t\tlatchVar${latchCounter} = 0;\n\t\t${out1} = 0;\n\t}\n`;
+      declareText += `int latchVar${latchCounter} = 0;\n`
+      latchCounter++;
+      break;
+    case 'TON':
+        loopText += `\n\tif (${inp1}==1) {\n\t\tif((millis()-prevTime${timerCounter}) >= ${inp2}) {\n\t\t\t${out1} = 1;\n\t\t} else {\n\t\t\t${out1} = 0;\n\t\t}\n\t} else {\n\t\tprevTime${timerCounter} = millis();\n\t\t${out1} = 0;\n\t}\n`;
+        declareText += `unsigned long prevTime${timerCounter} = 0;\n`
+        timerCounter++;
+        break;
+    case 'TOF':
+        loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 1;\n\t\tprevTime${timerCounter} = millis();\n\t} else if ((millis() - prevTime${timerCounter}) >= ${parseInt(inp2)}) {\n\t\t${out1} = 0;\n\t}\n`;
+        declareText += `unsigned long prevTime${timerCounter} = 0;\n`
+        timerCounter++;
+        break;
     default:
-      // code block
+      // idk
   }
-  //console.log(text);
+
+  if (outputsArr.indexOf(out1) != -1) {
+    loopText = loopText.replaceAll(`${out1} = 0`, `digitalWrite(${out1}, 0)`);
+    loopText = loopText.replaceAll(`${out1} = 1`, `digitalWrite(${out1}, 1)`);
+  }
+
+  if (outputsArr.indexOf(out2) != -1) {
+    loopText = loopText.replaceAll(`${out2} = 0`, `digitalWrite(${out2}, 0)`);
+    loopText = loopText.replaceAll(`${out2} = 1`, `digitalWrite(${out2}, 1)`);
+  }
+
 }
 
 
 function createLineCode(startVar, finishVar) {
   loopText += `\n\tif (${startVar}==1) {\n\t\t${finishVar} = 1;\n\t} else {\n\t\t${finishVar} = 0;\n\t}\n`;
-  //console.log(text);
+}
+
+
+function getVariables() {
+  let inputsTable = document.getElementById("inputsTable");
+  let outputsTable = document.getElementById("outputsTable");
+  let inputFields = inputsTable.querySelectorAll("input");
+  let outputFields = outputsTable.querySelectorAll("input");
+  for (let i = 0; i < inputFields.length; i++) {
+    if (i % 2 == 0) {
+      declareText += `const int inputPin${i/2} = ${inputFields[i+1].value};\n`;
+      setupText += `\tpinMode(inputPin${i/2}, INPUT);\n`;
+      loopText += `\t${inputFields[i].value} = digitalRead(inputPin${i/2});\n`;
+    }
+  }
+  for (let j = 0; j < outputFields.length; j++) {
+    if (j % 2 == 0) {
+      declareText += `const int ${outputFields[j].value} = ${outputFields[j+1].value};\n`;
+      setupText += `\tpinMode(${outputFields[j].value}, OUTPUT);\n`;
+      console.log(`digitalWrite(${outputFields[j].value}, 1)`);
+    }
+  }
+}
+
+
+function removeIO(e) {
+  e.parentElement.parentElement.remove();
+}
+
+
+function addInp() {
+  let inputRowText = '<tr><td><input type="text" value="input0"></td><td><input type="text" value="0"></td><td><button type="button" onclick="removeIO(this)" name="button">X</button></td></tr>';
+  document.getElementById("inputsTable").insertAdjacentHTML('beforeend', inputRowText);
+}
+
+function addOut() {
+  let outputRowText = '<tr><td><input type="text" value="output0"></td><td><input type="text" value="0"></td><td><button type="button" onclick="removeIO(this)" name="button">X</button></td></tr>';
+  document.getElementById("outputsTable").insertAdjacentHTML('beforeend', outputRowText);
 }
