@@ -1,5 +1,6 @@
 .plc-network {
-  min-width: 100%;
+  min-width: calc(100% - 40px);
+  margin-left: 20px;
   width: fit-content;
   height: fit-content;
   background: rgb(245, 245, 245);
@@ -7,13 +8,23 @@
   position: relative;
 }
 
-.plc-network::after {
+.plc-network .background-extend {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: rgb(245, 245, 245);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  z-index: -99;
+}
+
+/* .plc-network::after {
   display: block;
   height: 20px;
   width: 500px;
   background: none;
   content: ' ';
-}
+} */
 
 
 .plc-network-row {
@@ -200,7 +211,7 @@
 }
 
 .io-tables {
-
+  margin-bottom: 3rem;
 }
 
 #inputsTable {
@@ -252,14 +263,29 @@
   color: green;
 }
 
+.ready-code {
+  position: relative;
+  margin-top: 4rem;
+}
+
+.ready-code button {
+  position: absolute;
+  top:20px;
+  right: 30px;
+  font-size: 1rem;
+  padding: 0.75rem;
+}
 
 #finishedCode {
-  margin-top: 3rem;
-  font-size: 0.8rem;
-  white-space: pre-wrap;
+  width: 100%;
+  outline: none;
+  height: 360px;
+  resize: none;
+  margin-bottom: 5rem;
   background: rgb(52,52,52);
-  padding: 1.5rem;
   color: white;
+  font-size: 0.8rem;
+  padding: 2rem;
   border-radius: 5px;
   tab-size: 3;
 }

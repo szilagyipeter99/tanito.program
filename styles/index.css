@@ -26,6 +26,15 @@ a:hover {
   font-weight: 500;
 }
 
+.tananyag-rect {
+  text-align: center;
+  border: 2px solid black;
+  width: fit-content;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
 .section {
   margin-bottom: 6.75rem;
 }

@@ -20,12 +20,13 @@ function addNewBlock() {
   let rows = document.querySelectorAll(".plc-network-row");
   let pointers = document.querySelector(".pointers");
   if (rows[0].childElementCount == 0) {
-    pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="ff" style="left:${gateWidth/2 - pointerRadius}px;top:${20 - pointerRadius}px;" class="pointer-body"></span>`);
+    pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="ff" style="left:${pointerRadius}px;top:${2}px;" class="pointer-body"></span>`);
   } else {
     for (let i = 0; i < rows.length; i++) {
       for (let j = 0; j < rows[i].childElementCount; j++) {
         pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="${i}${j+1}" style="left:${gateWidth*(j+1) - pointerRadius}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
       }
+      pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="${i}f" style="left:${-pointerRadius}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
       pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="${i}0" style="left:${gateWidth/2 - pointerRadius}px;top:${gateHeight*(i+1) - pointerRadius}px;" class="pointer-body"></span>`);
     }
   }
@@ -55,10 +56,13 @@ function addBlock(blockname, inputs, outputs) {
     <div class="plc-gate-body-rect">${blockname}</div>${bodyOutputStr.repeat(outputs)}</div>
     <div class="plc-gate-output-labels">${labelStr.repeat(outputs)}</div></div></div>`;
   let rows = document.querySelectorAll(".plc-network-row");
-  if (colIndex == 'f') {
+  if (rowIndex == 'f') {
     rows[0].insertAdjacentHTML('beforeend', `${gateText}`);
   } else if (colIndex == 0) {
     rows[rowIndex].insertAdjacentHTML('afterend', `<div class="plc-network-row">${gateText}</div>`);
+  } else if (colIndex == 'f') {
+    let afterThisGate = rows[rowIndex].querySelector(`.plc-gate:nth-child(${1})`);
+    afterThisGate.insertAdjacentHTML('beforebegin', gateText);
   } else {
     let afterThisGate = rows[rowIndex].querySelector(`.plc-gate:nth-child(${colIndex})`);
     afterThisGate.insertAdjacentHTML('afterend', gateText);
@@ -70,7 +74,9 @@ function addBlock(blockname, inputs, outputs) {
   document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
 }
 
-
+function cancelPointers() {
+  document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
+}
 
 function addNewLine() {
   let rows = document.querySelectorAll(".plc-network-row");
@@ -183,6 +189,10 @@ function scan() {
 
   //console.log(`${declareText}\nvoid setup() {\n\tpinMode(ledPin, OUTPUT);\n\tpinMode(buttonPin, INPUT);\n}\n\nvoid loop() {${loopText}\n}`);
 
+  declareText = declareText.split("\n").filter((varLine, index, allVarLines) => {
+    return index === allVarLines.indexOf(varLine);
+  }).join("\n");
+
   document.getElementById('finishedCode').innerHTML = `${declareText}\nvoid setup() {\n\n${setupText}\n}\n\nvoid loop() {\n\n${loopText}\n}`;
 
 
@@ -210,7 +220,7 @@ function createGateCode(gateName, inp1, out1, inp2, out2) {
     //console.log(`int ${inp1} = 0;`);
   }
 
-  if (inp2) {
+  if (inp2 && isNaN(inp2)) {
     declareText += `int ${inp2} = 0;\n`;
     //console.log(`int ${inp2} = 0;`);
   }
@@ -244,7 +254,7 @@ function createGateCode(gateName, inp1, out1, inp2, out2) {
     case 'XOR':
       loopText += `\n\tif ((${inp1}==1 && ${inp2}==0) || (${inp1}==0 && ${inp2}==1)) {\n\t\t${out1} = 1;\n\t} else {\n\t\t${out1} = 0;\n\t}\n`;
       break;
-    case 'SPLIT':
+    case 'NODE':
       loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 1;\n\t\t${out2} = 1;\n\t} else {\n\t\t${out1} = 0;\n\t\t${out2} = 0;\n\t}\n`;
       break;
     case 'VAR':
@@ -261,15 +271,15 @@ function createGateCode(gateName, inp1, out1, inp2, out2) {
       latchCounter++;
       break;
     case 'TON':
-        loopText += `\n\tif (${inp1}==1) {\n\t\tif((millis()-prevTime${timerCounter}) >= ${inp2}) {\n\t\t\t${out1} = 1;\n\t\t} else {\n\t\t\t${out1} = 0;\n\t\t}\n\t} else {\n\t\tprevTime${timerCounter} = millis();\n\t\t${out1} = 0;\n\t}\n`;
-        declareText += `unsigned long prevTime${timerCounter} = 0;\n`
-        timerCounter++;
-        break;
+      loopText += `\n\tif (${inp1}==1) {\n\t\tif((millis()-prevTime${timerCounter}) >= ${inp2}) {\n\t\t\t${out1} = 1;\n\t\t} else {\n\t\t\t${out1} = 0;\n\t\t}\n\t} else {\n\t\tprevTime${timerCounter} = millis();\n\t\t${out1} = 0;\n\t}\n`;
+      declareText += `unsigned long prevTime${timerCounter} = 0;\n`
+      timerCounter++;
+      break;
     case 'TOF':
-        loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 1;\n\t\tprevTime${timerCounter} = millis();\n\t} else if ((millis() - prevTime${timerCounter}) >= ${parseInt(inp2)}) {\n\t\t${out1} = 0;\n\t}\n`;
-        declareText += `unsigned long prevTime${timerCounter} = 0;\n`
-        timerCounter++;
-        break;
+      loopText += `\n\tif (${inp1}==1) {\n\t\t${out1} = 1;\n\t\tprevTime${timerCounter} = millis();\n\t} else if ((millis() - prevTime${timerCounter}) >= ${parseInt(inp2)}) {\n\t\t${out1} = 0;\n\t}\n`;
+      declareText += `unsigned long prevTime${timerCounter} = 0;\n`
+      timerCounter++;
+      break;
     default:
       // idk
   }
@@ -327,4 +337,11 @@ function addInp() {
 function addOut() {
   let outputRowText = '<tr><td><input type="text" value="output0"></td><td><input type="text" value="0"></td><td><button type="button" onclick="removeIO(this)" name="button">X</button></td></tr>';
   document.getElementById("outputsTable").insertAdjacentHTML('beforeend', outputRowText);
+}
+
+function copyCode() {
+  let copyThis = document.getElementById('finishedCode');
+  copyThis.select();
+  copyThis.setSelectionRange(0, 99999);
+  document.execCommand("copy");
 }

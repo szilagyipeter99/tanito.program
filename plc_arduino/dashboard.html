@@ -58,16 +58,19 @@
       <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button> -->
       <button type="button" name="button" onclick="addBlock('RS', 2, 1)">RS</button>
       <button type="button" name="button" onclick="addBlock('SR', 2, 1)">SR</button>
-      <button type="button" name="button" onclick="addBlock('SPLIT', 1, 2)">SPLIT</button>
+      <button type="button" name="button" onclick="addBlock('NODE', 1, 2)">NODE</button>
       <button type="button" name="button" onclick="addBlock('VAR', 1, 1)">VAR</button>
     </div>
 
     <div class="eszkoztar">
       <button type="button" name="button" style="box-shadow: 2px 3px 0 orange;" id="newLine">Összeköt</button>
+      <button type="button" name="button" onclick="cancelPointers()">&nbsp;&#10005;&nbsp;</button>
       <button type="button" name="button">&larr;</button>
       <button type="button" name="button">&rarr;</button>
       <button type="button" name="button" onclick="addInp()" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
       <button type="button" name="button" onclick="addOut()" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
+      <button type="button" name="button" onclick="scan()">Törlés</button>
+      <button type="button" name="button" onclick="scan()">Mentés</button>
       <button type="button" name="button" onclick="scan()">Kód generálása</button>
     </div>
     <br>
@@ -124,9 +127,18 @@
 
       </div>
 
+      <div class="background-extend"></div>
+
     </div>
 
-    <p id="finishedCode">A kód itt fog megjelenni...</p>
+  <div class="ready-code">
+    <button type="button" name="button" onclick="copyCode()">Másolás</button>
+    <textarea id="finishedCode">
+    A kód itt fog megjelenni...
+    </textarea>
+  </div>
+
+
 
 
   </div>
