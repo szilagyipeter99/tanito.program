@@ -81,6 +81,42 @@ ul {
   margin: auto;
 }
 
+.keplet {
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  margin-left: .25rem;
+  width: fit-content;
+  border: 1px solid black;
+  box-shadow: 1px 2px 0 black;
+  border-radius: 3px;
+  display: flex;
+}
+
+.keplet p {
+  margin: 0;
+  line-height: 45px;
+}
+
+.tort {
+  width: fit-content;
+  text-align: center;
+}
+
+.tort p {
+  margin: 0;
+  line-height: 23px;
+  padding: 0 0.25rem;
+}
+
+.tort-indexes p {
+  line-height: 18px;
+}
+
+.tort p:first-child {
+  border-bottom: 2px solid black;
+  margin-bottom: 2px;
+}
+
 .h-container {
   display: flex;
   margin: 1rem 0;
@@ -194,19 +230,7 @@ td {
   padding: 8px;
 }
 
-.keplet {
-  padding: .75rem;
-  margin-bottom: 1.5rem;
-  margin-left: .25rem;
-  width: fit-content;
-  border: 1px solid black;
-  box-shadow: 1px 2px 0 black;
-  border-radius: 3px;
-}
 
-.keplet p {
-  margin: 0;
-}
 
 button {
   margin-bottom: 3rem;
@@ -263,24 +287,38 @@ input:focus {
     display: none;
   }
   .menu-button {
-    position: fixed;
+    position: relative;
+    margin-left: auto;
     z-index: 99;
-    right: 30px;
-    top: 40px;
+    right: 0;
+    top: 0;
+    margin-bottom: 1rem;
+    width: fit-content;
+  }
+  .menu-button svg {
+    margin-right: 0.5rem;
   }
   .container {
     width: 90%;
+    padding-top: 1rem;
   }
   .menu ul {
     padding: 3rem 1.5rem;
   }
   .main-title {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
   table {
     font-size: 0.8rem;
   }
   .h-container.atom {
     flex-direction: column;
+  }
+  .keplet p {
+    font-size: 1rem;
+  }
+  .tort p {
+    padding: 0;
+    font-size: 1rem;
   }
 }

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Mértékegységek, Prefixumok - Villamos alapismeretek</title>
+  <title>Több energiaforrás összekapcsolása- Villamos alapismeretek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../styles/index.css">
 </head>
@@ -18,17 +18,15 @@
       <li><a href="tartalom.html"> <u>Tartalomjegyzék</u> </a></li>
       <li><a href="mertekegyseg_prefixum.html">Mértékegységek, Prefixumok</a></li>
       <li><a href="alapfogalmak.html">Villamos alapfogalmak</a></li>
-      <li><a href="aramkor.html">Áramkör és jellemzői</a></li>
-      <li><a href="energiaforras_fogyaszto.html">Energiaforrások, fogyasztók</a></li>
+      <li><a href="aramkor.html">Áramkör fogalma, részei</a></li>
+      <li><a href="aramforras_fogyaszto.html">Áramforrások, fogyasztók</a></li>
       <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li>
-      <li><a href="homersekletfugges.html">Hőmérsékletfüggés</a></li>
       <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li>
-      <li><a href="osszetett_aramkor.html">Összetett áramkörök</a></li>
       <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li>
       <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li>
       <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li>
-      <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li>
-      <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li>
+      <!-- <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li> -->
+      <!-- <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li> -->
     </ul>
 
   </div>
@@ -45,155 +43,219 @@
     </div>
 
 
-    <h1 class="main-title">Mértékegységek, Prefixumok</h1>
+    <div class="back-button" onclick="location.href='tartalom.html'">
+      &#10141;
+    </div>
+
+
+    <h1 class="main-title">Több energiaforrás összekapcsolása</h1>
 
 
     <div class="section">
-      <h2 class="section-title">Mértékegység</h2>
+      <h2 class="section-title">Akkumulátor cella</h2>
       <ul>
-        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
-        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
+        <li>Az akkumulátorok általában több cellából állnak</li>
+        <li>A cellák kapcsolhatók sorosan, párhuzamosan vagy vegyesen</li>
       </ul>
+      <br>
+      <p>Vegyünk egy cellát az alábbi tulajdonságokkal:</p>
+      <svg viewBox="0 0 500 230" style="max-width:500px;">
 
-      <table style="text-align:center;font-size: 1.1rem;">
-        <tr>
-          <td>  <b>Mennyiség</b> </td>
-          <td> <b>Jel</b> </td>
-          <td> <b>Mértékegység</b> </td>
-        </tr>
-        <tr>
-          <td>Hossz</td>
-          <td>l</td>
-          <td>m</td>
-        </tr>
-        <tr>
-          <td>Tömeg</td>
-          <td>m</td>
-          <td>kg</td>
-        </tr>
-        <tr>
-          <td>Idő</td>
-          <td>t</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Hőmérséklet</td>
-          <td>T</td>
-          <td>°C (vagy K)</td>
-        </tr>
-        <tr>
-          <td>Áramerősség</td>
-          <td>I</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>Fényerősség</td>
-          <td>Ir</td>
-          <td>Cd</td>
-        </tr>
-        <tr>
-          <td>Anyagmennyiség</td>
-          <td>n</td>
-          <td>mol</td>
-        </tr>
-      </table>
+        <text x="200" y="60" fill="grey" font-size="1.5rem" text-anchor="left">U = 3.7 [V]</text>
+        <text x="200" y="110" fill="grey" font-size="1.5rem" text-anchor="left">I = 4 [A] (Max)</text>
+        <text x="200" y="160" fill="grey" font-size="1.5rem" text-anchor="left">W = 9.25 [Wh]</text>
 
+        <rect y="0" x="65" width="20" height="20" rx="3" fill="grey" />
+        <rect y="10" x="50" width="50" height="200" rx="3" fill="lightgreen" />
+
+
+      </svg>
     </div>
 
 
     <div class="section">
-      <h2 class="section-title">Prefixumok</h2>
+      <h2 class="section-title">Soros kapcsolás</h2>
       <ul>
-        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
-        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
+        <li>Feszültség növekszik</li>
+        <li>Áramleadó képesség változatlan</li>
+        <li>Kapacitás változatlan</li>
       </ul>
+      <svg viewBox="0 0 600 250" style="max-width:600px;">
 
-      <div class="h-container">
+        <text x="300" y="60" fill="black" font-size="1.5rem" text-anchor="left">U = 11.1 [V]</text>
+        <text x="300" y="110" fill="grey" font-size="1.5rem" text-anchor="left">I = 4 [A] (Max)</text>
+        <text x="300" y="160" fill="grey" font-size="1.5rem" text-anchor="left">W = 9.25 [Wh]</text>
 
-        <table style="font-size: 1.1rem;margin-right:2.5rem;">
-          <tr>
-            <td>× 10</td>
-            <td>deka</td>
-          </tr>
-          <tr>
-            <td>× 100</td>
-            <td>hekto</td>
-          </tr>
-          <tr>
-            <td>× 1000</td>
-            <td>kilo</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>6</b></sup></td>
-            <td>mega</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>9</b></sup></td>
-            <td>giga</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>12</b></sup></td>
-            <td>tera</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>15</b></sup></td>
-            <td>peta</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>18</b></sup></td>
-            <td>exa</td>
-          </tr>
-        </table>
+        <rect y="20" x="65" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="50" width="50" height="200" rx="3" fill="lightgreen" />
 
-        <table style="font-size: 1.1rem;margin-right:2.5rem;">
-          <tr>
-            <td>÷ 10</td>
-            <td>deci</td>
-          </tr>
-          <tr>
-            <td>÷ 100</td>
-            <td>centi</td>
-          </tr>
-          <tr>
-            <td>÷ 1000</td>
-            <td>mili</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>6</b></sup></td>
-            <td>mikro</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>9</b></sup></td>
-            <td>nano</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>12</b></sup></td>
-            <td>piko</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>15</b></sup></td>
-            <td>femto</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>18</b></sup></td>
-            <td>atto</td>
-          </tr>
-        </table>
+        <rect y="210" x="125" width="20" height="20" rx="3" fill="grey" />
+        <rect y="20" x="110" width="50" height="200" rx="3" fill="lightgreen" />
 
-      </div>
+        <rect y="20" x="185" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="170" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <!-- <path d="M 75 20 C 75 0, 135 0, 135 20" stroke="gold" stroke-width="4" fill="transparent"/>
+        <path d="M 135 230 C 135 250, 195 250, 195 230" stroke="gold" stroke-width="4" fill="transparent"/> -->
+
+        <rect y="11" x="67" width="76" height="5" fill="silver" />
+        <rect y="15" x="67" width="16" height="4" fill="silver" />
+        <rect y="15" x="127" width="16" height="4" fill="silver" />
 
 
+        <rect y="234" x="127" width="76" height="5" fill="silver" />
+        <rect y="231" x="187" width="16" height="4" fill="silver" />
+        <rect y="231" x="127" width="16" height="4" fill="silver" />
 
+      </svg>
     </div>
 
 
+    <div class="section">
+      <h2 class="section-title">Párhuzamos kapcsolás</h2>
+      <ul>
+        <li>Feszültség változatlan</li>
+        <li>Áramleadó képesség növekszik</li>
+        <li>Kapacitás növekszik</li>
+      </ul>
+      <svg viewBox="0 0 600 250" style="max-width:600px;">
 
-    <button onclick="location.href='prefixum_kalkulator.html'" type="button" name="button">Kalkulátor</button>
+        <text x="300" y="60" fill="grey" font-size="1.5rem" text-anchor="left">U = 3.7 [V]</text>
+        <text x="300" y="110" fill="black" font-size="1.5rem" text-anchor="left">I = 12 [A] (Max)</text>
+        <text x="300" y="160" fill="black" font-size="1.5rem" text-anchor="left">W = 27.75 [Wh]</text>
+
+        <rect y="20" x="65" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="50" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="20" x="125" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="110" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="20" x="185" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="170" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <!-- <path d="M 75 20 C 75 0, 135 0, 135 20" stroke="silver" stroke-width="4" fill="transparent"/>
+        <path d="M 135 230 C 135 250, 195 250, 195 230" stroke="silver" stroke-width="4" fill="transparent"/> -->
+
+        <rect y="11" x="67" width="175" height="5" fill="silver" />
+        <rect y="15" x="67" width="16" height="4" fill="silver" />
+        <rect y="15" x="127" width="16" height="4" fill="silver" />
+        <rect y="15" x="187" width="16" height="4" fill="silver" />
+
+        <rect y="234" x="67" width="175" height="5" fill="silver" />
+        <rect y="231" x="67" width="16" height="4" fill="silver" />
+        <rect y="231" x="187" width="16" height="4" fill="silver" />
+        <rect y="231" x="127" width="16" height="4" fill="silver" />
+
+      </svg>
+      </svg>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Vegyes kapcsolás</h2>
+      <ul>
+        <li>Feszültség növekszik</li>
+        <li>Áramleadó képesség növekszik</li>
+        <li>Kapacitás növekszik</li>
+      </ul>
+      <svg viewBox="0 0 600 420" style="max-width:600px;">
+
+        <text x="30" y="310" fill="black" font-size="1.5rem" text-anchor="left">U = 11.1 [V]</text>
+        <text x="30" y="360" fill="black" font-size="1.5rem" text-anchor="left">I = 12 [A] (Max)</text>
+        <text x="30" y="410" fill="black" font-size="1.5rem" text-anchor="left">W = 27.75 [Wh]</text>
+
+        <rect y="20" x="15" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="0" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="210" x="75" width="20" height="20" rx="3" fill="grey" />
+        <rect y="20" x="60" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="20" x="135" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="120" width="50" height="200" rx="3" fill="lightgreen" />
 
 
+        <rect y="20" x="205" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="190" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="210" x="265" width="20" height="20" rx="3" fill="grey" />
+        <rect y="20" x="250" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="20" x="325" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="310" width="50" height="200" rx="3" fill="lightgreen" />
 
 
+        <rect y="20" x="395" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="380" width="50" height="200" rx="3" fill="lightgreen" />
 
+        <rect y="210" x="455" width="20" height="20" rx="3" fill="grey" />
+        <rect y="20" x="440" width="50" height="200" rx="3" fill="lightgreen" />
+
+        <rect y="20" x="515" width="20" height="20" rx="3" fill="grey" />
+        <rect y="30" x="500" width="50" height="200" rx="3" fill="lightgreen" />
+
+
+        <rect y="11" x="17" width="76" height="5" fill="silver" />
+        <rect y="15" x="17" width="16" height="4" fill="silver" />
+        <rect y="15" x="77" width="16" height="4" fill="silver" />
+
+        <rect y="234" x="77" width="76" height="5" fill="silver" />
+        <rect y="231" x="137" width="16" height="4" fill="silver" />
+        <rect y="231" x="77" width="16" height="4" fill="silver" />
+
+
+        <rect y="11" x="207" width="76" height="5" fill="silver" />
+        <rect y="15" x="207" width="16" height="4" fill="silver" />
+        <rect y="15" x="267" width="16" height="4" fill="silver" />
+
+        <rect y="234" x="267" width="76" height="5" fill="silver" />
+        <rect y="231" x="327" width="16" height="4" fill="silver" />
+        <rect y="231" x="267" width="16" height="4" fill="silver" />
+
+
+        <rect y="11" x="397" width="76" height="5" fill="silver" />
+        <rect y="15" x="397" width="16" height="4" fill="silver" />
+        <rect y="15" x="457" width="16" height="4" fill="silver" />
+
+        <rect y="234" x="457" width="76" height="5" fill="silver" />
+        <rect y="231" x="517" width="16" height="4" fill="silver" />
+        <rect y="231" x="457" width="16" height="4" fill="silver" />
+
+
+        <rect y="0" x="137" width="435" height="5" fill="lightgrey" />
+        <rect y="4" x="137" width="16" height="15" fill="lightgrey" />
+        <rect y="4" x="327" width="16" height="15" fill="lightgrey" />
+        <rect y="4" x="517" width="16" height="15" fill="lightgrey" />
+
+        <rect y="245" x="17" width="555" height="5" fill="lightgrey" />
+        <rect y="231" x="17" width="16" height="15" fill="lightgrey" />
+        <rect y="231" x="207" width="16" height="15" fill="lightgrey" />
+        <rect y="231" x="397" width="16" height="15" fill="lightgrey" />
+
+
+      </svg>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Wh-Ah Átváltás</h2>
+      <ul>
+        <li>Változó, hogy a kapacitást Wh-ban (Wattóra), vagy Ah-ban (Amperóra) adják meg</li>
+      </ul>
+
+      <p><b>A Wattóra elosztva a feszültséggel megadja az Amperórát.</b></p>
+
+      <p>[Ah] = [Wh] / U</p>
+
+      <p>[Wh] = [Ah] × U</p>
+
+      <br>
+      <p><u>Példa:</u></p>
+
+      <p>A fenti cella <b>9.25Wh</b> kapacitású, és a névleges feszültsége <b>3.7V</b>,
+        ezért mivel <i>9.25 / 3.7 = 2.5</i> , a cella <b>2.5Ah</b> kapacitású. Átváltva ez <b>2500mAh</b>.</p>
+
+      <p>Hasonlóan egy <b>5000mAh = 5Ah</b> kapacitású, <b>12V</b> névleges feszültségű akkumulátor kapacitása <b>5 × 12 = 60Wh</b>.</p>
+
+
+    </div>
 
 
 
