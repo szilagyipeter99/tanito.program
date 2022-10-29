@@ -40,40 +40,44 @@
 
     <h1 class="main-title">PLC Arduino fordító</h1>
 
-
-    <div class="eszkoztar" id="gateButtons">
-      <button type="button" name="button" id="newBlock">+ Blokk</button>
-      <button type="button" name="button" onclick="addBlock('NOT', 1, 1)">NOT</button>
-      <button type="button" name="button" onclick="addBlock('AND', 2, 1)">AND</button>
-      <button type="button" name="button" onclick="addBlock('NAND', 2, 1)">NAND</button>
-      <button type="button" name="button" onclick="addBlock('OR', 2, 1)">OR</button>
-      <button type="button" name="button" onclick="addBlock('NOR', 2, 1)">NOR</button>
-      <button type="button" name="button" onclick="addBlock('XOR', 2, 1)">XOR</button>
-      <button type="button" name="button" onclick="addBlock('TON', 2, 2)">TON</button>
-      <button type="button" name="button" onclick="addBlock('TOF', 2, 2)">TOF</button>
-      <!-- <button type="button" name="button" onclick="addBlock('ADD', 2, 1)">ADD</button>
-      <button type="button" name="button" onclick="addBlock('GT', 2, 1)">GT</button>
-      <button type="button" name="button" onclick="addBlock('GE', 2, 1)">GE</button>
-      <button type="button" name="button" onclick="addBlock('LT', 2, 1)">LT</button>
-      <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button> -->
-      <button type="button" name="button" onclick="addBlock('RS', 2, 1)">RS</button>
-      <button type="button" name="button" onclick="addBlock('SR', 2, 1)">SR</button>
-      <button type="button" name="button" onclick="addBlock('NODE', 1, 2)">NODE</button>
-      <button type="button" name="button" onclick="addBlock('VAR', 1, 1)">VAR</button>
-    </div>
-
     <div class="eszkoztar">
-      <button type="button" name="button" style="box-shadow: 2px 3px 0 orange;" id="newLine">Összeköt</button>
-      <button type="button" name="button" onclick="cancelPointers()">&nbsp;&#10005;&nbsp;</button>
-      <button type="button" name="button">&larr;</button>
-      <button type="button" name="button">&rarr;</button>
-      <button type="button" name="button" onclick="addInp()" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
-      <button type="button" name="button" onclick="addOut()" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
-      <button type="button" name="button" onclick="scan()">Törlés</button>
-      <button type="button" name="button" onclick="scan()">Mentés</button>
-      <button type="button" name="button" onclick="scan()">Kód generálása</button>
+      <div id="gateButtons">
+        <button type="button" name="button" id="newBlock">+ Blokk</button>
+        <button type="button" name="button" onclick="addBlock('NOT', 1, 1)">NOT</button>
+        <button type="button" name="button" onclick="addBlock('AND', 2, 1)">AND</button>
+        <button type="button" name="button" onclick="addBlock('NAND', 2, 1)">NAND</button>
+        <button type="button" name="button" onclick="addBlock('OR', 2, 1)">OR</button>
+        <button type="button" name="button" onclick="addBlock('NOR', 2, 1)">NOR</button>
+        <button type="button" name="button" onclick="addBlock('XOR', 2, 1)">XOR</button>
+        <button type="button" name="button" onclick="addBlock('TON', 2, 2)">TON</button>
+        <button type="button" name="button" onclick="addBlock('TOF', 2, 2)">TOF</button>
+        <button type="button" name="button" onclick="addBlock('INC', 2, 1)">INC</button>
+        <button type="button" name="button" onclick="addBlock('DT3', 1, 1)">DT3</button>
+        <button type="button" name="button" onclick="addBlock('DT4', 1, 1)">DT4</button>
+        <!-- <button type="button" name="button" onclick="addBlock('ADD', 2, 1)">ADD</button> -->
+        <button type="button" name="button" onclick="addBlock('GT', 2, 1)">GT</button>
+        <!-- <button type="button" name="button" onclick="addBlock('GE', 2, 1)">GE</button> -->
+        <button type="button" name="button" onclick="addBlock('LT', 2, 1)">LT</button>
+        <!-- <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button> -->
+        <button type="button" name="button" onclick="addBlock('RS', 2, 1)">RS</button>
+        <button type="button" name="button" onclick="addBlock('SR', 2, 1)">SR</button>
+        <button type="button" name="button" onclick="addBlock('NODE', 1, 2)">NODE</button>
+        <button type="button" name="button" onclick="addBlock('VAR', 1, 1)">VAR</button>
+      </div>
+
+      <div>
+        <button type="button" name="button" style="box-shadow: 2px 3px 0 orange;" id="newLine">Összeköt</button>
+        <button type="button" name="button" onclick="cancelPointers()">&nbsp;&#10005;&nbsp;</button>
+        <button type="button" name="button" onclick="addInp()" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
+        <button type="button" name="button" onclick="addOut()" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
+        <button type="button" name="button" onclick="addPointersToDelete()">Törlés</button>
+        <a href="" download="ArduinoProgram.szpeti" id="download">Mentés</a>
+        <input type="file" onchange="loadFile(this.files[0])" id="fileSelect" style="display:none;">
+        <button type="button" name="button" onclick="document.getElementById('fileSelect').click();">Feltöltés</button>
+        <button type="button" name="button" onclick="scan()">Kód generálása</button>
+      </div>
     </div>
-    <br>
+
 
     <div class="io-tables">
       <table id="inputsTable">
@@ -93,12 +97,10 @@
       </table>
     </div>
 
-    <div class="plc-network">
+    <div class="plc-network" id="networkCode">
 
       <div class="lines">
         <svg width="100%" height="200">
-          <!-- <path d="M 180 80 C 240 80, 240 50, 300 50" />
-          <path d="M 180 240 C 240 240, 240 110, 300 110" /> -->
         </svg>
       </div>
 
@@ -107,36 +109,18 @@
 
       <div class="plc-network-row">
 
-        <!-- <div class="plc-gate plc-gate-2-1">
-          <div class="plc-gate-container">
-            <div class="plc-gate-input-labels">
-              <p><input type="text" value="?"></p>
-              <p><input type="text" value="?"></p>
-            </div>
-            <div class="plc-gate-body">
-              <div class="plc-gate-body-input"></div>
-              <div class="plc-gate-body-input"></div>
-              <div class="plc-gate-body-rect">AND</div>
-              <div class="plc-gate-body-output"></div>
-            </div>
-            <div class="plc-gate-output-labels">
-              <p><input type="text" value="?"></p>
-            </div>
-          </div>
-        </div> -->
-
       </div>
 
       <div class="background-extend"></div>
 
     </div>
 
-  <div class="ready-code">
-    <button type="button" name="button" onclick="copyCode()">Másolás</button>
-    <textarea id="finishedCode">
+    <div class="ready-code">
+      <button type="button" name="button" onclick="copyCode()">Másolás</button>
+      <textarea id="finishedCode">
     A kód itt fog megjelenni...
     </textarea>
-  </div>
+    </div>
 
 
 
@@ -144,7 +128,7 @@
   </div>
 
   <script src="../scripts/index.js" charset="utf-8"></script>
-  <script src="plc.js" charset="utf-8"></script>
+  <script src="plc_99.js" charset="utf-8"></script>
 </body>
 
 </html>

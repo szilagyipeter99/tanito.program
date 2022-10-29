@@ -22,14 +22,14 @@ function addNewBlock() {
   let rows = document.querySelectorAll(".plc-network-row");
   let pointers = document.querySelector(".pointers");
   if (rows[0].childElementCount == 0) {
-    pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="ff" style="left:${pointerRadius}px;top:${2}px;" class="pointer-body"></span>`);
+    pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" data-ri="f" data-ci="f" style="left:${pointerRadius}px;top:${2}px;" class="pointer-body"></span>`);
   } else {
     for (let i = 0; i < rows.length; i++) {
       for (let j = 0; j < rows[i].childElementCount; j++) {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="${i}${j+1}" style="left:${gateWidth*(j+1) - pointerRadius}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" data-ri="${i}" data-ci="${j+1}" style="left:${gateWidth*(j+1) - pointerRadius}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
       }
-      pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="${i}f" style="left:${-pointerRadius}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
-      pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" id="${i}0" style="left:${gateWidth/2 - pointerRadius}px;top:${gateHeight*(i+1) - pointerRadius}px;" class="pointer-body"></span>`);
+      pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" data-ri="${i}" data-ci="f" style="left:${-pointerRadius}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
+      pointers.insertAdjacentHTML('beforeend', `<span onclick="makeActive(this)" data-ri="${i}" data-ci="0" style="left:${gateWidth/2 - pointerRadius}px;top:${gateHeight*(i+1) - pointerRadius}px;" class="pointer-body"></span>`);
     }
   }
 }
@@ -48,8 +48,8 @@ function makeActive(e) {
 
 function addBlock(blockname, inputs, outputs) {
   let activePointer = document.querySelector(".pointer-body.active");
-  let rowIndex = activePointer.id.charAt(0);
-  let colIndex = activePointer.id.charAt(1);
+  let rowIndex = activePointer.dataset.ri;
+  let colIndex = activePointer.dataset.ci;
   let labelStr = '<p><input type="text"></p>';
   let bodyInputStr = '<div class="plc-gate-body-input"></div>';
   let bodyOutputStr = '<div class="plc-gate-body-output"></div>';
@@ -87,21 +87,21 @@ function addNewLine() {
     let childrenArray = rows[i].querySelectorAll('.plc-gate');
     for (let j = 0; j < rows[i].childElementCount; j++) {
       if (childrenArray[j].classList[1] == 'plc-gate-1-1') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i11" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o111" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i11" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o111" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-2-1') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i21" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i22" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o112" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i21" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i22" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o112" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-1-2') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i11" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o211" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o221" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i11" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o211" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o221" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-2-2') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i21" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}i22" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o212" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" id="${i}${j}o222" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i21" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i22" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o212" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o222" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
       }
     }
   }
@@ -109,27 +109,36 @@ function addNewLine() {
 
 
 let step = 0;
-let firstPointerID;
-let secondPointerID;
+let firstPointerRow, firstPointerCol, firstPointerDesc;
+let secondPointerRow, secondPointerCol, secondPointerDesc;
 
 function makeTheLine(e) {
-  if (step == 0 && e.id.charAt(2) === 'o') {
+
+  let rowIndex = e.dataset.ri;
+  let colIndex = e.dataset.ci;
+  let gateDesc = e.dataset.gd;
+
+  if (step == 0 && gateDesc.charAt(0) === 'o') {
     e.classList.toggle("active");
-    firstPointerID = e.id;
+    firstPointerRow = rowIndex;
+    firstPointerCol = colIndex;
+    firstPointerDesc = gateDesc;
     step = 1;
-  } else if (step == 1 && e.id.charAt(2) === 'i') {
-    secondPointerID = e.id;
+  } else if (step == 1 && gateDesc.charAt(0) === 'i') {
+    secondPointerRow = rowIndex;
+    secondPointerCol = colIndex;
+    secondPointerDesc = gateDesc;
     step = 0;
     let linesContainer = document.querySelector(".lines svg");
-    let startFromThisMany = firstPointerID.charAt(3);
-    let startThisIndex = firstPointerID.charAt(4);
-    let startX = firstPointerID.charAt(1) * gateWidth + gateWidth - gateMarginSide - 50;
-    let startY = firstPointerID.charAt(0) * gateHeight + (gateHeight - 2 * gateMarginTop) / (2 * startFromThisMany) * (startThisIndex * 2 - 1) + gateMarginTop;
-    let endFromThisMany = secondPointerID.charAt(3);
-    let endThisIndex = secondPointerID.charAt(4);
-    let endX = secondPointerID.charAt(1) * gateWidth + gateMarginSide + 50;
-    let endY = secondPointerID.charAt(0) * gateHeight + (gateHeight - 2 * gateMarginTop) / (2 * endFromThisMany) * (endThisIndex * 2 - 1) + gateMarginTop;
-    linesContainer.insertAdjacentHTML('beforeend', `<path id="${firstPointerID}&${secondPointerID}" d="M ${startX} ${startY} C ${(endX+startX)/2} ${startY}, ${(endX+startX)/2} ${endY}, ${endX} ${endY}" />`)
+    let startFromThisMany = firstPointerDesc.charAt(1);
+    let startThisIndex = firstPointerDesc.charAt(2);
+    let startX = firstPointerCol * gateWidth + gateWidth - gateMarginSide - 50;
+    let startY = firstPointerRow * gateHeight + (gateHeight - 2 * gateMarginTop) / (2 * startFromThisMany) * (startThisIndex * 2 - 1) + gateMarginTop;
+    let endFromThisMany = secondPointerDesc.charAt(1);
+    let endThisIndex = secondPointerDesc.charAt(2);
+    let endX = secondPointerCol * gateWidth + gateMarginSide + 50;
+    let endY = secondPointerRow * gateHeight + (gateHeight - 2 * gateMarginTop) / (2 * endFromThisMany) * (endThisIndex * 2 - 1) + gateMarginTop;
+    linesContainer.insertAdjacentHTML('beforeend', `<path data-fri="${firstPointerRow}" data-fci="${firstPointerCol}" data-fgd="${firstPointerDesc}" data-sri="${secondPointerRow}" data-sci="${secondPointerCol}" data-sgd="${secondPointerDesc}" id="${firstPointerRow}${firstPointerCol}${firstPointerDesc}&${secondPointerRow}${secondPointerCol}${secondPointerDesc}" d="M ${startX} ${startY} C ${(endX+startX)/2} ${startY}, ${(endX+startX)/2} ${endY}, ${endX} ${endY}" />`)
     document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
   }
 
@@ -143,9 +152,6 @@ function scan() {
   setupText = '';
   loopText = '';
 
-  latchCounter = 0;
-  timerCounter = 0;
-  incCounter = 0;
 
   getVariables();
 
@@ -180,20 +186,18 @@ function scan() {
     }
   }
   for (let k = 0; k < paths.length; k++) {
-    let ids = paths[k].id.split("&");
-    let pathStartVar = `v${ids[0].charAt(0)}${ids[0].charAt(1)}${parseInt(ids[0].charAt(4))+parseInt(ids[0].charAt(5))}`;
-    let pathFinishVar = `v${ids[1].charAt(0)}${ids[1].charAt(1)}${ids[1].charAt(4)}`;
-    //console.log(ids[0], ids[1]);
+
+    let fri = paths[k].dataset.fri;
+    let fci = paths[k].dataset.fci;
+    let fgd = paths[k].dataset.fgd;
+    let sri = paths[k].dataset.sri;
+    let sci = paths[k].dataset.sci;
+    let sgd = paths[k].dataset.sgd;
+
+    let pathStartVar = `v${fri}${fci}${parseInt(fgd.charAt(2))+parseInt(fgd.charAt(3))}`;
+    let pathFinishVar = `v${sri}${sci}${sgd.charAt(2)}`;
     createLineCode(pathStartVar, pathFinishVar);
   }
-
-  //console.log(declareText);
-  //console.log('void setup() {pinMode(ledPin, OUTPUT);  pinMode(buttonPin, INPUT);}')
-  //console.log('void loop() {');
-  //console.log(loopText);
-  //console.log('}');
-
-  //console.log(`${declareText}\nvoid setup() {\n\tpinMode(ledPin, OUTPUT);\n\tpinMode(buttonPin, INPUT);\n}\n\nvoid loop() {${loopText}\n}`);
 
   declareText = declareText.split("\n").filter((varLine, index, allVarLines) => {
     return index === allVarLines.indexOf(varLine);
@@ -386,9 +390,9 @@ function addPointersToDelete() {
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < rows[i].childElementCount; j++) {
       if (rows[i].childElementCount == 1) {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="deleteBlock(this)" id="${i}${j+1}l" style="left:${gateWidth*(j) - pointerRadius + gateWidth/2}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="deleteBlock(this)" data-ri="${i}" data-ci="${j+1}"  data-last="T" style="left:${gateWidth*(j) - pointerRadius + gateWidth/2}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
       } else {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="deleteBlock(this)" id="${i}${j+1}" style="left:${gateWidth*(j) - pointerRadius + gateWidth/2}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="deleteBlock(this)" data-ri="${i}" data-ci="${j+1}" style="left:${gateWidth*(j) - pointerRadius + gateWidth/2}px;top:${gateHeight/2 + (i*gateHeight) - pointerRadius}px;" class="pointer-body"></span>`);
       }
     }
   }
@@ -399,8 +403,8 @@ function addPointersToDelete() {
 
     let l = coords.length;
 
-  //  console.log(coords, l);
 
+    //  JAVITANI
     pointers.insertAdjacentHTML('beforeend', `<span onclick="deleteLine(this)" id="${paths[k].id}" style="left:${(parseInt(coords[1])+parseInt(coords[l-2]))/2-pointerRadius}px;top:${(parseInt(coords[l-1])+parseInt(coords[2]))/2-pointerRadius}px;" class="pointer-body"></span>`);
 
 
@@ -411,11 +415,11 @@ function addPointersToDelete() {
 
 
 function deleteBlock(e) {
-  let rowIndex = e.id.charAt(0);
-  let colIndex = e.id.charAt(1);
+  let rowIndex = e.dataset.ri;
+  let colIndex = e.dataset.ci;
   let rows = document.querySelectorAll(".plc-network-row");
   let deleteThisGate = rows[rowIndex].querySelector(`.plc-gate:nth-child(${colIndex})`);
-  if (e.id.charAt(2)) {
+  if (e.dataset.last && rows.length!=1) {
     rows[rowIndex].remove();
   } else {
     deleteThisGate.remove();
@@ -431,4 +435,18 @@ function deleteLine(e) {
   deleteThisPath.remove();
 
   document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
+}
+
+
+document.querySelector('#download').addEventListener('click', (event) => {
+  let inputs = document.querySelectorAll(".plc-network-row input");
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].setAttribute('value', inputs[i].value);
+  }
+  event.target.href = `data:text/plain;charset=utf-8,${document.getElementById('networkCode').innerHTML}`;
+});
+
+async function loadFile(f) {
+    let text = await f.text();
+    document.getElementById('networkCode').innerHTML = text;
 }
