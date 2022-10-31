@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Mértékegységek, Prefixumok - Villamos alapismeretek</title>
+  <title>Ideális és valóságos feszültségforrás - Villamos alapismeretek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../styles/index.css">
 </head>
@@ -18,12 +18,10 @@
       <li><a href="tartalom.html"> <u>Tartalomjegyzék</u> </a></li>
       <li><a href="mertekegyseg_prefixum.html">Mértékegységek, Prefixumok</a></li>
       <li><a href="alapfogalmak.html">Villamos alapfogalmak</a></li>
-      <li><a href="aramkor.html">Áramkör és jellemzői</a></li>
-      <li><a href="energiaforras_fogyaszto.html">Energiaforrások, fogyasztók</a></li>
+      <li><a href="aramkor.html">Áramkör fogalma, részei</a></li>
+      <li><a href="aramforras_fogyaszto.html">Áramforrások, fogyasztók</a></li>
       <li><a href="ellenallas_fogalom.html">Ellenállás a gyakorlatban</a></li>
-      <li><a href="homersekletfugges.html">Hőmérsékletfüggés</a></li>
       <li><a href="ellenallas_alkatresz.html">Ellenállás, mint alkatrész</a></li>
-      <li><a href="osszetett_aramkor.html">Összetett áramkörök</a></li>
       <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li>
       <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li>
       <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li>
@@ -38,172 +36,172 @@
 
     <div class="menu-button ">
       <svg width="40" height="27">
-        <rect width="36" height="3" x="2" y="0"  />
+        <rect width="36" height="3" x="2" y="0" />
         <rect width="36" height="3" x="2" y="12" />
         <rect width="36" height="3" x="2" y="24" />
       </svg>
     </div>
 
-
-    <h1 class="main-title">Mértékegységek, Prefixumok</h1>
-
-
-    <div class="section">
-      <h2 class="section-title">Mértékegység</h2>
-      <ul>
-        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
-        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
-      </ul>
-
-      <table style="text-align:center;font-size: 1.1rem;">
-        <tr>
-          <td>  <b>Mennyiség</b> </td>
-          <td> <b>Jel</b> </td>
-          <td> <b>Mértékegység</b> </td>
-        </tr>
-        <tr>
-          <td>Hossz</td>
-          <td>l</td>
-          <td>m</td>
-        </tr>
-        <tr>
-          <td>Tömeg</td>
-          <td>m</td>
-          <td>kg</td>
-        </tr>
-        <tr>
-          <td>Idő</td>
-          <td>t</td>
-          <td>s</td>
-        </tr>
-        <tr>
-          <td>Hőmérséklet</td>
-          <td>T</td>
-          <td>°C (vagy K)</td>
-        </tr>
-        <tr>
-          <td>Áramerősség</td>
-          <td>I</td>
-          <td>A</td>
-        </tr>
-        <tr>
-          <td>Fényerősség</td>
-          <td>Ir</td>
-          <td>Cd</td>
-        </tr>
-        <tr>
-          <td>Anyagmennyiség</td>
-          <td>n</td>
-          <td>mol</td>
-        </tr>
-      </table>
-
+    <div class="back-button" onclick="location.href='tartalom.html'">
+      &#10141;
     </div>
 
 
+    <h1 class="main-title">Ideális és valóságos feszültségforrás</h1>
+
     <div class="section">
-      <h2 class="section-title">Prefixumok</h2>
+      <h2 class="section-title">Ideális feszültségforrás</h2>
+      <p>Nincs belső ellenállása, kapocsfeszültsége terheléstől függetlenül állandó.</p>
       <ul>
-        <li>Minden atomokból épül fel: emberek, gépek, stb. </li>
-        <li>Különböző anyagoknak atomjai különböző módon épülnek fel</li>
+        <li>Valójában ilyen nem létezik</li>
       </ul>
 
-      <div class="h-container">
+      <svg viewBox="0 0 400 170" style="max-width:400px;">
 
-        <table style="font-size: 1.1rem;margin-right:2.5rem;">
-          <tr>
-            <td>× 10</td>
-            <td>deka</td>
-          </tr>
-          <tr>
-            <td>× 100</td>
-            <td>hekto</td>
-          </tr>
-          <tr>
-            <td>× 1000</td>
-            <td>kilo</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>6</b></sup></td>
-            <td>mega</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>9</b></sup></td>
-            <td>giga</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>12</b></sup></td>
-            <td>tera</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>15</b></sup></td>
-            <td>peta</td>
-          </tr>
-          <tr>
-            <td>× 10<sup><b>18</b></sup></td>
-            <td>exa</td>
-          </tr>
-        </table>
+        <rect y="0" x="90" width="160" height="160" fill="none" stroke-width="2" stroke="black" />
 
-        <table style="font-size: 1.1rem;margin-right:2.5rem;">
-          <tr>
-            <td>÷ 10</td>
-            <td>deci</td>
-          </tr>
-          <tr>
-            <td>÷ 100</td>
-            <td>centi</td>
-          </tr>
-          <tr>
-            <td>÷ 1000</td>
-            <td>mili</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>6</b></sup></td>
-            <td>mikro</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>9</b></sup></td>
-            <td>nano</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>12</b></sup></td>
-            <td>piko</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>15</b></sup></td>
-            <td>femto</td>
-          </tr>
-          <tr>
-            <td>÷ 10<sup><b>18</b></sup></td>
-            <td>atto</td>
-          </tr>
-        </table>
+        <circle cx="90" cy="80" r="30" fill="none" stroke-width="2" stroke="black" />
 
+        <rect y="40" x="235" width="30" height="80" rx="2" fill="white" stroke-width="2" stroke="black" />
+
+        <text x="80" y="-35" fill="black" font-size="4rem" style="transform: rotate(90deg);" text-anchor="middle">&#10230;</text>
+
+        <text x="20" y="90" fill="black" font-size="1.5rem" text-anchor="middle">U0</text>
+
+        <circle cx="250" cy="20" r="6" fill="black" />
+        <circle cx="250" cy="140" r="6" fill="black" />
+
+        <line x1="250" y1="20" x2="350" y2="20" stroke-width="2" stroke="black" />
+        <line x1="250" y1="140" x2="350" y2="140" stroke-width="2" stroke="black" />
+
+        <text x="360" y="30" fill="black" font-size="1.5rem" text-anchor="middle">A</text>
+        <text x="360" y="150" fill="black" font-size="1.5rem" text-anchor="middle">B</text>
+
+        <text x="285" y="90" fill="black" font-size="1.5rem" text-anchor="middle">Rt</text>
+
+
+      </svg>
+
+      <div class="keplet">
+        <p>
+          U<sub>AB</sub> = U<sub>0</sub>
+        </p>
       </div>
 
 
-
     </div>
 
 
+    <div class="section">
+      <h2 class="section-title">Valóságos feszültségforrás</h2>
+      <p>Van belső ellenállása, kapocsfeszültsége a terheléstől függ, mivel nagyobb áramfelvétel esetén a belső ellenállásra nagyobb feszültség esik, amely kivonódik a kapocsfeszültségből.</p>
+      <ul>
+        <li>Minden tápegység, akkumulátor, stb.</li>
+      </ul>
 
-    <button onclick="location.href='prefixum_kalkulator.html'" type="button" name="button">Kalkulátor</button>
+      <svg viewBox="0 0 400 350" style="max-width:400px;">
+
+        <rect y="0" x="90" width="160" height="300" fill="none" stroke-width="2" stroke="black" />
+
+        <rect y="30" x="-3" width="150" height="240" fill="none" stroke-width="1" stroke="lightgrey" />
+
+        <circle cx="90" cy="80" r="30" fill="none" stroke-width="2" stroke="black" />
+
+        <rect y="170" x="75" width="30" height="80" rx="2" fill="white" stroke-width="2" stroke="black" />
+        <rect y="110" x="235" width="30" height="80" rx="2" fill="white" stroke-width="2" stroke="black" />
 
 
+        <text x="80" y="-35" fill="black" font-size="4rem" style="transform: rotate(90deg);" text-anchor="middle">&#10230;</text>
+
+        <text x="20" y="90" fill="black" font-size="1.5rem" text-anchor="middle">U0</text>
+
+        <circle cx="250" cy="90" r="6" fill="black" />
+        <circle cx="250" cy="210" r="6" fill="black" />
+
+        <line x1="250" y1="90" x2="350" y2="90" stroke-width="2" stroke="black" />
+        <line x1="250" y1="210" x2="350" y2="210" stroke-width="2" stroke="black" />
+
+        <text x="360" y="100" fill="black" font-size="1.5rem" text-anchor="middle">A</text>
+        <text x="360" y="220" fill="black" font-size="1.5rem" text-anchor="middle">B</text>
+
+        <text x="285" y="160" fill="black" font-size="1.5rem" text-anchor="middle">Rt</text>
+        <text x="125" y="220" fill="black" font-size="1.5rem" text-anchor="middle">Rb</text>
 
 
+      </svg>
 
 
+      <div class="keplet">
+        <p>
+          U<sub>AB</sub> =/= U<sub>0</sub>
+        </p>
+      </div>
+
+      <br><br>
+      <h3>Kapocsfeszültség számítás:</h3>
+      <br>
+      <svg viewBox="0 0 400 350" style="max-width:400px;">
+
+        <rect y="0" x="90" width="160" height="300" fill="none" stroke-width="2" stroke="black" />
+        <circle cx="90" cy="80" r="30" fill="none" stroke-width="2" stroke="black" />
+
+        <rect y="180" x="75" width="30" height="80" rx="2" fill="white" stroke-width="2" stroke="black" />
+        <rect y="110" x="235" width="30" height="80" rx="2" fill="white" stroke-width="2" stroke="black" />
 
 
+        <text x="80" y="-35" fill="black" font-size="4rem" style="transform: rotate(90deg);" text-anchor="middle">&#10230;</text>
+
+        <text x="20" y="90" fill="black" font-size="1.5rem" text-anchor="middle">U0</text>
+
+        <circle cx="250" cy="90" r="6" fill="black" />
+        <circle cx="250" cy="210" r="6" fill="black" />
+
+        <line x1="250" y1="90" x2="350" y2="90" stroke-width="2" stroke="black" />
+        <line x1="250" y1="210" x2="350" y2="210" stroke-width="2" stroke="black" />
+
+        <text x="360" y="100" fill="black" font-size="1.5rem" text-anchor="middle">A</text>
+        <text x="360" y="220" fill="black" font-size="1.5rem" text-anchor="middle">B</text>
+
+        <text x="285" y="160" fill="black" font-size="1.5rem" text-anchor="middle">Rt</text>
+        <text x="125" y="230" fill="black" font-size="1.5rem" text-anchor="middle">Rb</text>
+
+        <text x="150" y="45" fill="grey" font-size="4rem" text-anchor="middle">&#10141;</text>
+        <text x="190" y="30" fill="grey" font-size="1.5rem" text-anchor="middle">I0</text>
 
 
+      </svg>
+
+      <p>A belső ellenálláson eső feszültség az Ohm törvényből jön ki: </p>
+
+      <div class="keplet">
+        <p>
+          U<sub>b</sub> = I<sub>0</sub> &middot;&nbsp;R<sub>b</sub>
+        </p>
+      </div>
+
+      <br>
+      <p>A kapocsfeszültség az üresjárati feszültség és a belső ellenálláson eső feszültség különbsége: </p>
+      <div class="keplet">
+        <p>
+          U<sub>AB</sub> = U<sub>0</sub> - I<sub>0</sub>&middot;R<sub>b</sub>
+        </p>
+      </div>
+      <br>
+      <p>Ahogy a képlet mutatja, minél <b>nagyobb</b> akár az <b>áram</b>, akár a <b>belső ellenállás</b>, a <b>kapocsfeszültség csökken</b>.
+        Ideális esetben a belső ellenállás nagyon kicsi, úgy nagy áramfelvételkor minimálisan csökken a feszültség.</p>
+
+        <p><u>Példa:</u></p>
+
+        <p>LG INR18650 akkumulátor cella: <b>R<sub>b</sub> = 0.035 Ω</b></p>
+
+    </div>
 
 
 
 
   </div>
+
+
 
   <script src="../scripts/index.js" charset="utf-8"></script>
 </body>

@@ -152,6 +152,10 @@ function scan() {
   setupText = '';
   loopText = '';
 
+  latchCounter = 0;
+  timerCounter = 0;
+  incCounter = 0;
+
 
   getVariables();
 
@@ -215,6 +219,9 @@ let incCounter = 0;
 function createGateCode(gateName, inp1, out1, inp2, out2) {
 
 
+
+
+
   let outputFields = document.getElementById("outputsTable").querySelectorAll('input');
   let outputsArr = [];
 
@@ -228,7 +235,6 @@ function createGateCode(gateName, inp1, out1, inp2, out2) {
 
   if (inp1 && isNaN(inp1)) {
     declareText += `int ${inp1} = 0;\n`;
-    //console.log(`int ${inp1} = 0;`);
   }
 
   if (inp2 && isNaN(inp2)) {

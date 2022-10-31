@@ -170,7 +170,7 @@
 
 .eszkoztar {
   position: fixed;
-  padding: 1rem;
+  padding: 1rem 1rem 0;
   bottom: 9px;
   left: 12px;
   border-radius: 5px;

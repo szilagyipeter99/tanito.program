@@ -25,8 +25,8 @@
       <li><a href="eredo_ellenallas.html">Eredő ellenállás</a></li>
       <li><a href="aramkori_torvenyek.html">Áramköri törvények</a></li>
       <li><a href="energiaforrasok_kapcsolasa.html">Több energiaforrás összekapcsolása</a></li>
-      <!-- <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li> -->
-      <!-- <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li> -->
+      <li><a href="idealis_valosagos_forras.html">Ideális és valóságos feszültségforrás</a></li>
+      <li><a href="aramkorok_egyszerusitese.html">Összetett áramkörök egyszerűsítése</a></li>
     </ul>
 
   </div>
@@ -63,7 +63,7 @@
 
         <text x="200" y="60" fill="grey" font-size="1.5rem" text-anchor="left">U = 3.7 [V]</text>
         <text x="200" y="110" fill="grey" font-size="1.5rem" text-anchor="left">I = 4 [A] (Max)</text>
-        <text x="200" y="160" fill="grey" font-size="1.5rem" text-anchor="left">W = 9.25 [Wh]</text>
+        <text x="200" y="160" fill="grey" font-size="1.5rem" text-anchor="left">2500 [mAh]</text>
 
         <rect y="0" x="65" width="20" height="20" rx="3" fill="grey" />
         <rect y="10" x="50" width="50" height="200" rx="3" fill="lightgreen" />
@@ -84,7 +84,7 @@
 
         <text x="300" y="60" fill="black" font-size="1.5rem" text-anchor="left">U = 11.1 [V]</text>
         <text x="300" y="110" fill="grey" font-size="1.5rem" text-anchor="left">I = 4 [A] (Max)</text>
-        <text x="300" y="160" fill="grey" font-size="1.5rem" text-anchor="left">W = 9.25 [Wh]</text>
+        <text x="300" y="160" fill="grey" font-size="1.5rem" text-anchor="left">2500 [mAh]</text>
 
         <rect y="20" x="65" width="20" height="20" rx="3" fill="grey" />
         <rect y="30" x="50" width="50" height="200" rx="3" fill="lightgreen" />
@@ -122,7 +122,7 @@
 
         <text x="300" y="60" fill="grey" font-size="1.5rem" text-anchor="left">U = 3.7 [V]</text>
         <text x="300" y="110" fill="black" font-size="1.5rem" text-anchor="left">I = 12 [A] (Max)</text>
-        <text x="300" y="160" fill="black" font-size="1.5rem" text-anchor="left">W = 27.75 [Wh]</text>
+        <text x="300" y="160" fill="black" font-size="1.5rem" text-anchor="left">7500 [mAh]</text>
 
         <rect y="20" x="65" width="20" height="20" rx="3" fill="grey" />
         <rect y="30" x="50" width="50" height="200" rx="3" fill="lightgreen" />
@@ -161,7 +161,7 @@
 
         <text x="30" y="310" fill="black" font-size="1.5rem" text-anchor="left">U = 11.1 [V]</text>
         <text x="30" y="360" fill="black" font-size="1.5rem" text-anchor="left">I = 12 [A] (Max)</text>
-        <text x="30" y="410" fill="black" font-size="1.5rem" text-anchor="left">W = 27.75 [Wh]</text>
+        <text x="30" y="410" fill="black" font-size="1.5rem" text-anchor="left">7500 [mAh]</text>
 
         <rect y="20" x="15" width="20" height="20" rx="3" fill="grey" />
         <rect y="30" x="0" width="50" height="200" rx="3" fill="lightgreen" />
@@ -235,9 +235,10 @@
     </div>
 
     <div class="section">
-      <h2 class="section-title">Wh-Ah Átváltás</h2>
+      <h2 class="section-title">Ah-Wh Átváltás</h2>
       <ul>
-        <li>Változó, hogy a kapacitást Wh-ban (Wattóra), vagy Ah-ban (Amperóra) adják meg</li>
+        <li>Gyakran használatos a mAh mértékegység: 1000mAh = 1Ah</li>
+        <li>Az Ah (Amperóra) félrevezető lehet, ezért a legjobb a Wh (Wattóra) használata</li>
       </ul>
 
       <p><b>A Wattóra elosztva a feszültséggel megadja az Amperórát.</b></p>
@@ -249,10 +250,10 @@
       <br>
       <p><u>Példa:</u></p>
 
-      <p>A fenti cella <b>9.25Wh</b> kapacitású, és a névleges feszültsége <b>3.7V</b>,
-        ezért mivel <i>9.25 / 3.7 = 2.5</i> , a cella <b>2.5Ah</b> kapacitású. Átváltva ez <b>2500mAh</b>.</p>
+      <p>A fenti cella <b>2500mAh</b>, átváltva ez <b>2.5Ah</b> (Amperóra). Névleges feszültsége <b>3.7V</b>,
+        ezért mivel <i>2.5 × 3.7 = 9.25</i>, a cella <b>9.25Wh</b> (Wattóra) kapacitású. </p>
 
-      <p>Hasonlóan egy <b>5000mAh = 5Ah</b> kapacitású, <b>12V</b> névleges feszültségű akkumulátor kapacitása <b>5 × 12 = 60Wh</b>.</p>
+      <p>Hasonlóan egy <b>60Wh</b> kapacitású, <b>12V</b> névleges feszültségű akkumulátor kapacitása <b>60 / 12 = 5Ah = 5000mAh</b>.</p>
 
 
     </div>
