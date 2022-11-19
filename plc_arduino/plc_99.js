@@ -2,6 +2,7 @@ const gateWidth = 200;
 const gateHeight = 100;
 const gateMarginTop = 10;
 const gateMarginSide = 10;
+const microPointerRadius = 3;
 const pointerRadius = 6;
 
 
@@ -11,7 +12,27 @@ let loopText = '';
 
 
 document.getElementById("newBlock").addEventListener("click", addNewBlock);
-document.getElementById("newLine").addEventListener("click", addNewLine);
+document.addEventListener('keyup', e => {
+  if (e.code === 'Escape') {
+    cancelPointers();
+  }
+});
+document.addEventListener('keyup', e => {
+  if (e.code === 'F2') {
+    addNewBlock();
+  }
+});
+document.addEventListener('keyup', e => {
+  if (e.code === 'F3') {
+    addPointersToDelete();
+  }
+});
+document.addEventListener('keyup', e => {
+  if (e.code === 'F4') {
+    scan();
+  }
+});
+//document.getElementById("newLine").addEventListener("click", addNewLine);
 const buttonArray = document.getElementById("gateButtons").querySelectorAll("button");
 
 for (let h = 1; h < buttonArray.length; h++) {
@@ -19,6 +40,7 @@ for (let h = 1; h < buttonArray.length; h++) {
 }
 
 function addNewBlock() {
+  document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
   let rows = document.querySelectorAll(".plc-network-row");
   let pointers = document.querySelector(".pointers");
   if (rows[0].childElementCount == 0) {
@@ -44,6 +66,11 @@ function makeActive(e) {
     buttonArray[h].disabled = false;
   }
   e.classList.toggle("active");
+  let pointerPosition = e.getBoundingClientRect();
+  document.getElementById('searchArea').style.display = 'block';
+  document.getElementById('searchArea').style.left = `${pointerPosition.left + 30}px`;
+  document.getElementById('searchArea').style.top = `${pointerPosition.top - 10}px`;
+  document.getElementById('gateSearchInput').focus();
 }
 
 function addBlock(blockname, inputs, outputs) {
@@ -74,41 +101,55 @@ function addBlock(blockname, inputs, outputs) {
     buttonArray[h].disabled = true;
   }
   document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
+  document.getElementById('searchArea').style.display = 'none';
+  document.getElementById('gateSearchInput').value = '';
+  refreshLinePointers();
 }
 
 function cancelPointers() {
   document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
 }
 
-function addNewLine() {
+function refreshLinePointers() {
+  document.querySelectorAll('.micro-pointer-body').forEach(pointer => pointer.remove());
   let rows = document.querySelectorAll(".plc-network-row");
   let pointers = document.querySelector(".pointers");
   for (let i = 0; i < rows.length; i++) {
     let childrenArray = rows[i].querySelectorAll('.plc-gate');
     for (let j = 0; j < rows[i].childElementCount; j++) {
       if (childrenArray[j].classList[1] == 'plc-gate-1-1') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i11" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o111" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i11" style="left:${j*gateWidth + gateMarginSide+50-microPointerRadius}px;top:${i*gateHeight + gateHeight/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o111" style="left:${j*gateWidth + gateWidth-gateMarginSide-50-microPointerRadius}px;top:${i*gateHeight + gateHeight/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-2-1') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i21" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i22" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o112" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i21" style="left:${j*gateWidth + gateMarginSide+50-microPointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i22" style="left:${j*gateWidth + gateMarginSide+50-microPointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o112" style="left:${j*gateWidth + gateWidth-gateMarginSide-50-microPointerRadius}px;top:${i*gateHeight + gateHeight/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-1-2') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i11" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o211" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o221" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i11" style="left:${j*gateWidth + gateMarginSide+50-microPointerRadius}px;top:${i*gateHeight + gateHeight/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o211" style="left:${j*gateWidth + gateWidth-gateMarginSide-50-microPointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o221" style="left:${j*gateWidth + gateWidth-gateMarginSide-50-microPointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
       } else if (childrenArray[j].classList[1] == 'plc-gate-2-2') {
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i21" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i22" style="left:${j*gateWidth + gateMarginSide+50-2*pointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o212" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
-        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o222" style="left:${j*gateWidth + gateWidth-gateMarginSide-50}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-pointerRadius}px;" class="pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i21" style="left:${j*gateWidth + gateMarginSide+50-microPointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="i22" style="left:${j*gateWidth + gateMarginSide+50-microPointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o212" style="left:${j*gateWidth + gateWidth-gateMarginSide-50-microPointerRadius}px;top:${i*gateHeight + gateHeight/4+gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
+        pointers.insertAdjacentHTML('beforeend', `<span onclick="makeTheLine(this)" data-ri="${i}" data-ci="${j}" data-gd="o222" style="left:${j*gateWidth + gateWidth-gateMarginSide-50-microPointerRadius}px;top:${i*gateHeight + gateHeight*3/4-gateMarginTop/2-microPointerRadius}px;" class="micro-pointer-body"></span>`);
       }
     }
   }
 }
 
 
-let step = 0;
+
+// function makeActive(e) {
+//   let activeNow = document.querySelector(".pointer-body.active") || undefined;
+//   if (activeNow) {
+//     activeNow.classList.toggle("active");
+//   }
+//   e.classList.toggle("active");
+// }
+
+
+let step;
 let firstPointerRow, firstPointerCol, firstPointerDesc;
 let secondPointerRow, secondPointerCol, secondPointerDesc;
 
@@ -118,13 +159,18 @@ function makeTheLine(e) {
   let colIndex = e.dataset.ci;
   let gateDesc = e.dataset.gd;
 
-  if (step == 0 && gateDesc.charAt(0) === 'o') {
+  let activeNow = document.querySelector(".micro-pointer-body.active") || undefined;
+  if (activeNow && activeNow != e) {
+    activeNow.classList.toggle("active");
+  }
+
+  if (gateDesc.charAt(0) === 'o') {
     e.classList.toggle("active");
     firstPointerRow = rowIndex;
     firstPointerCol = colIndex;
     firstPointerDesc = gateDesc;
     step = 1;
-  } else if (step == 1 && gateDesc.charAt(0) === 'i') {
+  } else if (step && gateDesc.charAt(0) === 'i') {
     secondPointerRow = rowIndex;
     secondPointerCol = colIndex;
     secondPointerDesc = gateDesc;
@@ -139,7 +185,6 @@ function makeTheLine(e) {
     let endX = secondPointerCol * gateWidth + gateMarginSide + 50;
     let endY = secondPointerRow * gateHeight + (gateHeight - 2 * gateMarginTop) / (2 * endFromThisMany) * (endThisIndex * 2 - 1) + gateMarginTop;
     linesContainer.insertAdjacentHTML('beforeend', `<path data-fri="${firstPointerRow}" data-fci="${firstPointerCol}" data-fgd="${firstPointerDesc}" data-sri="${secondPointerRow}" data-sci="${secondPointerCol}" data-sgd="${secondPointerDesc}" id="${firstPointerRow}${firstPointerCol}${firstPointerDesc}&${secondPointerRow}${secondPointerCol}${secondPointerDesc}" d="M ${startX} ${startY} C ${(endX+startX)/2} ${startY}, ${(endX+startX)/2} ${endY}, ${endX} ${endY}" />`)
-    document.querySelectorAll('.pointer-body').forEach(pointer => pointer.remove());
   }
 
 }
@@ -425,7 +470,7 @@ function deleteBlock(e) {
   let colIndex = e.dataset.ci;
   let rows = document.querySelectorAll(".plc-network-row");
   let deleteThisGate = rows[rowIndex].querySelector(`.plc-gate:nth-child(${colIndex})`);
-  if (e.dataset.last && rows.length!=1) {
+  if (e.dataset.last && rows.length != 1) {
     rows[rowIndex].remove();
   } else {
     deleteThisGate.remove();
@@ -453,6 +498,24 @@ document.querySelector('#download').addEventListener('click', (event) => {
 });
 
 async function loadFile(f) {
-    let text = await f.text();
-    document.getElementById('networkCode').innerHTML = text;
+  let text = await f.text();
+  document.getElementById('networkCode').innerHTML = text;
+}
+
+
+
+function gateSearch() {
+  let input = document.getElementById("gateSearchInput");
+  let formattedValue = input.value.toUpperCase();
+  let gateButtonsList = document.querySelector(".search-area #gateButtonsSearch");
+  let gateButton = gateButtonsList.getElementsByTagName("button");
+  for (let i = 0; i < gateButton.length; i++) {
+    console.log(gateButton[i]);
+    let buttonName = gateButton[i].textContent || gateButton[i].innerText;
+    if (buttonName.indexOf(formattedValue) > -1 && formattedValue!=='') {
+      gateButton[i].style.display = "block";
+    } else {
+      gateButton[i].style.display = "none";
+    }
+  }
 }

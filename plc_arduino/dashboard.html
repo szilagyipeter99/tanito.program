@@ -21,6 +21,31 @@
 
   </div>
 
+  <div class="search-area" id="searchArea" style="display: none;">
+    <input type="text" id="gateSearchInput" onkeyup="gateSearch()">
+    <div id="gateButtonsSearch">
+      <button type="button" name="button" onclick="addBlock('NOT', 1, 1)" style="display: none;">NOT</button>
+      <button type="button" name="button" onclick="addBlock('AND', 2, 1)" style="display: none;">AND</button>
+      <button type="button" name="button" onclick="addBlock('NAND', 2, 1)" style="display: none;">NAND</button>
+      <button type="button" name="button" onclick="addBlock('OR', 2, 1)" style="display: none;">OR</button>
+      <button type="button" name="button" onclick="addBlock('NOR', 2, 1)" style="display: none;">NOR</button>
+      <button type="button" name="button" onclick="addBlock('XOR', 2, 1)" style="display: none;">XOR</button>
+      <button type="button" name="button" onclick="addBlock('TON', 2, 2)" style="display: none;">TON</button>
+      <button type="button" name="button" onclick="addBlock('TOF', 2, 2)" style="display: none;">TOF</button>
+      <button type="button" name="button" onclick="addBlock('INC', 2, 1)" style="display: none;">INC</button>
+      <button type="button" name="button" onclick="addBlock('DT3', 1, 1)" style="display: none;">DT3</button>
+      <button type="button" name="button" onclick="addBlock('DT4', 1, 1)" style="display: none;">DT4</button>
+      <button type="button" name="button" onclick="addBlock('GT', 2, 1)" style="display: none;">GT</button>
+      <button type="button" name="button" onclick="addBlock('LT', 2, 1)" style="display: none;">LT</button>
+      <button type="button" name="button" onclick="addBlock('RS', 2, 1)" style="display: none;">RS</button>
+      <button type="button" name="button" onclick="addBlock('SR', 2, 1)" style="display: none;">SR</button>
+      <button type="button" name="button" onclick="addBlock('NODE', 1, 2)" style="display: none;">NODE</button>
+      <button type="button" name="button" onclick="addBlock('VAR', 1, 1)" style="display: none;">VAR</button>
+    </div>
+  </div>
+
+
+
 
 
   <div class="container">
@@ -54,11 +79,8 @@
         <button type="button" name="button" onclick="addBlock('INC', 2, 1)">INC</button>
         <button type="button" name="button" onclick="addBlock('DT3', 1, 1)">DT3</button>
         <button type="button" name="button" onclick="addBlock('DT4', 1, 1)">DT4</button>
-        <!-- <button type="button" name="button" onclick="addBlock('ADD', 2, 1)">ADD</button> -->
         <button type="button" name="button" onclick="addBlock('GT', 2, 1)">GT</button>
-        <!-- <button type="button" name="button" onclick="addBlock('GE', 2, 1)">GE</button> -->
         <button type="button" name="button" onclick="addBlock('LT', 2, 1)">LT</button>
-        <!-- <button type="button" name="button" onclick="addBlock('LE', 2, 1)">LE</button> -->
         <button type="button" name="button" onclick="addBlock('RS', 2, 1)">RS</button>
         <button type="button" name="button" onclick="addBlock('SR', 2, 1)">SR</button>
         <button type="button" name="button" onclick="addBlock('NODE', 1, 2)">NODE</button>
@@ -66,7 +88,6 @@
       </div>
 
       <div>
-        <button type="button" name="button" style="box-shadow: 2px 3px 0 orange;" id="newLine">Összeköt</button>
         <button type="button" name="button" onclick="cancelPointers()">&nbsp;&#10005;&nbsp;</button>
         <button type="button" name="button" onclick="addInp()" style="box-shadow: 2px 3px 0 red;">+ Bemenet</button>
         <button type="button" name="button" onclick="addOut()" style="box-shadow: 2px 3px 0 green;">+ Kimenet</button>
@@ -117,7 +138,7 @@
 
     <div class="ready-code">
       <button type="button" name="button" onclick="copyCode()">Másolás</button>
-      <textarea id="finishedCode">
+      <textarea id="finishedCode" readonly>
     A kód itt fog megjelenni...
     </textarea>
     </div>
