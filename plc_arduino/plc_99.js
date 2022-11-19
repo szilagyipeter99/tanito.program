@@ -13,22 +13,22 @@ let loopText = '';
 
 document.getElementById("newBlock").addEventListener("click", addNewBlock);
 document.addEventListener('keyup', e => {
-  if (e.code === 'Escape') {
+  if (e.key === 'Escape') {
     cancelPointers();
   }
 });
 document.addEventListener('keyup', e => {
-  if (e.code === 'F2') {
+  if (e.key === 'F2') {
     addNewBlock();
   }
 });
 document.addEventListener('keyup', e => {
-  if (e.code === 'F3') {
+  if (e.key === 'F3') {
     addPointersToDelete();
   }
 });
 document.addEventListener('keyup', e => {
-  if (e.code === 'F4') {
+  if (e.key === 'F4') {
     scan();
   }
 });
